@@ -8,6 +8,12 @@
   let height = 0;
   let dpr = 1;
   let pointer = { x: 0.5, y: 0.5 };
+  let frame = 0;
+
+  function scheduleDraw() {
+    if (frame || document.hidden) return;
+    frame = requestAnimationFrame(drawAtmosphere);
+  }
 
   function resizeCanvas() {
     if (!canvas || !ctx) return;
@@ -23,6 +29,7 @@
   }
 
   function drawAtmosphere() {
+    frame = 0;
     if (!ctx) return;
 
     ctx.clearRect(0, 0, width, height);
@@ -41,20 +48,30 @@
     ctx.fillStyle = glow;
     ctx.fillRect(0, 0, width, height);
 
-    if (!prefersReducedMotion) requestAnimationFrame(drawAtmosphere);
+    // The field only depends on pointer/viewport, not elapsed time.
   }
 
   window.addEventListener("resize", () => {
     resizeCanvas();
+    scheduleDraw();
     app?.updateScrollEffects?.();
   });
 
   window.addEventListener("pointermove", (event) => {
+    if (prefersReducedMotion) return;
     pointer = {
       x: event.clientX / Math.max(1, width),
       y: event.clientY / Math.max(1, height)
     };
+    scheduleDraw();
   }, { passive: true });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    } else scheduleDraw();
+  });
 
   resizeCanvas();
   drawAtmosphere();

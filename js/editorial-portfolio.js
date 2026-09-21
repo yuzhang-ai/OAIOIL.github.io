@@ -13,6 +13,11 @@
   let latestIntent = null;
   let transitionTimer = 0;
   let promoteTimer = 0;
+  let arrivingPage = null;
+
+  function onPageArrived(event) {
+    if (event.target === arrivingPage && event.propertyName === "transform") finishTransition();
+  }
 
   function stopNoteAnimation(note) {
     note.getAnimations().forEach((animation) => animation.cancel());
@@ -86,8 +91,11 @@
   }
 
   function finishTransition() {
+    if (!isAnimating) return;
     window.clearTimeout(transitionTimer);
     window.clearTimeout(promoteTimer);
+    arrivingPage?.removeEventListener("transitionend", onPageArrived);
+    arrivingPage = null;
     const outgoing = pages.find((page) => page.classList.contains("is-outgoing"));
     const incoming = pages.find((page) => page.classList.contains("is-rising"));
     outgoing?.classList.remove("is-outgoing");
@@ -108,9 +116,9 @@
 
   function transitionTo(id) {
     if (!pageById.has(id)) return;
-    updateAccordion(id);
     latestIntent = id;
     if (isAnimating) return;
+    updateAccordion(id);
     if (id === pageOrder[0]) {
       latestIntent = null;
       return;
@@ -128,6 +136,8 @@
 
     isAnimating = true;
     const incoming = pageById.get(id);
+    arrivingPage = incoming;
+    arrivingPage?.addEventListener("transitionend", onPageArrived);
     if (reverse) {
       incoming?.classList.add("is-rising", "is-resetting");
       incoming?.getBoundingClientRect();
@@ -142,7 +152,8 @@
       }
       renderStack();
     }, 100);
-    transitionTimer = window.setTimeout(finishTransition, reverse ? 850 : 750);
+    // Both directions start promotion after100ms; never truncate its750ms travel.
+    transitionTimer = window.setTimeout(finishTransition, 1050);
   }
 
   selectors.forEach((selector, index) => {

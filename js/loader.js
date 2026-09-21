@@ -24,6 +24,11 @@
     window.removeEventListener("touchmove", interrupt);
     window.removeEventListener("keydown", onKeydown);
     skip?.removeEventListener("click", interrupt);
+    loader?.removeEventListener("animationend", onOpeningEnd);
+  }
+
+  function onOpeningEnd(event) {
+    if (event.target === loader && event.animationName === "opening-reveal") finish();
   }
 
   function revealPage() {
@@ -105,10 +110,13 @@
     setDockGeometry();
     loader?.getBoundingClientRect();
     startFrame = requestAnimationFrame(() => {
-      if (!finished) body.classList.add("is-opening");
+      if (finished) return;
+      body.classList.add("is-opening");
+      // Event-driven completion; timeout only protects missing animation events.
+      naturalTimer = window.setTimeout(finish, 2400);
     });
     addInterrupts();
-    naturalTimer = window.setTimeout(finish, 2100);
+    loader?.addEventListener("animationend", onOpeningEnd);
   }
 
   function waitForTexture() {

@@ -43,7 +43,7 @@ body.is-opening .opening-replay {
   width: clamp(10rem, 18vw, 15rem);
   height: auto;
   overflow: visible;
-  filter: drop-shadow(0 1.2rem 1.8rem rgba(70, 55, 38, 0.14));
+  /* Stone depth is in the SVG; avoid filtering every moving SVG fragment. */
 }
 
 .loader__o-upper,
@@ -130,6 +130,8 @@ body.is-opening .loader { animation: opening-reveal 600ms ease 1500ms both; }
 .loader.is-hidden {
   display: none;
 }
+
+body.is-opening .grain { animation-play-state: paused; }
 
 @keyframes opening-upper {
   to { transform: translate(0, 0); }
