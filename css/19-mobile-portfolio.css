@@ -1,0 +1,28 @@
+/* Compact gallery: contain page travel above the independently readable directory. */
+@media (max-width: 900px) {
+  #portfolio .portfolio-plate {
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 12px;
+    min-height: clamp(350px, 76vw, 440px);
+    transform: none !important;
+    transition: opacity 450ms ease;
+  }
+  #portfolio .portfolio-directory { position: relative; z-index: 1; }
+  #portfolio .portfolio-page {
+    transition: transform 320ms cubic-bezier(.22,.78,.2,1), opacity 240ms ease;
+    will-change: auto;
+    box-shadow: none;
+  }
+  #portfolio .portfolio-page.is-middle,
+  #portfolio .portfolio-page.is-back { transform: translate3d(0,12px,0); opacity: 0; pointer-events: none; }
+  #portfolio .portfolio-page.is-front { transform: none; opacity: 1; }
+  #portfolio .portfolio-page.is-outgoing { transform: translate3d(0,-16px,0) !important; opacity: 0; }
+  #portfolio .portfolio-page.is-rising { transform: translate3d(0,16px,0) !important; opacity: 0; }
+  #portfolio .portfolio-page.is-rising.is-returning { transform: translate3d(0,0,0) !important; opacity: 1; }
+  #portfolio .portfolio-page.is-resetting { transition: none !important; }
+  #portfolio .portfolio-note { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #portfolio .portfolio-page { transition: none; }
+}

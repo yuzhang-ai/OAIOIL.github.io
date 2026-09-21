@@ -6,6 +6,7 @@
   const pages = Array.from(spread.querySelectorAll("[data-portfolio-page]"));
   const notes = Array.from(spread.querySelectorAll("[data-portfolio-note]"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const compact = window.matchMedia("(max-width: 900px)");
   const pageById = new Map(pages.map((page) => [page.dataset.portfolioPage, page]));
   const fixedIndex = new Map(pages.map((page, index) => [page.dataset.portfolioPage, index]));
   let pageOrder = pages.map((page) => page.dataset.portfolioPage);
@@ -33,7 +34,7 @@
       note.setAttribute("aria-hidden", "false");
       if (!note.hidden) return;
       note.hidden = false;
-      if (reducedMotion.matches) return;
+      if (reducedMotion.matches || compact.matches) return;
       const height = note.scrollHeight;
       note.style.height = "0px";
       note.style.overflow = "hidden";
@@ -48,7 +49,7 @@
     if (note.hidden) return;
     note.inert = true;
     note.setAttribute("aria-hidden", "true");
-    if (reducedMotion.matches) {
+    if (reducedMotion.matches || compact.matches) {
       note.hidden = true;
       return;
     }
@@ -151,9 +152,9 @@
         incoming?.classList.add("is-returning");
       }
       renderStack();
-    }, 100);
+    }, compact.matches ? 20 : 100);
     // Both directions start promotion after100ms; never truncate its750ms travel.
-    transitionTimer = window.setTimeout(finishTransition, 1050);
+    transitionTimer = window.setTimeout(finishTransition, compact.matches ? 450 : 1050);
   }
 
   selectors.forEach((selector, index) => {
@@ -172,6 +173,11 @@
 
   reducedMotion.addEventListener?.("change", () => {
     if (reducedMotion.matches && isAnimating) finishTransition();
+  });
+  compact.addEventListener?.("change", () => {
+    if (isAnimating) finishTransition();
+    notes.forEach(stopNoteAnimation);
+    updateAccordion(pageOrder[0]);
   });
   renderStack();
 })();
