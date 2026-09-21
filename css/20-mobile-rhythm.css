@@ -1,0 +1,34 @@
+.tool-disclosure, .work-mobile-controls { display: none; }
+@media (max-width: 900px) {
+  #work { min-height: auto; }
+  #work .stack-pin { position: static; height: auto; overflow: visible; }
+  #work .work-stack {
+    display: flex; gap: 14px; height: auto; width: 100%; max-width: none;
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+    padding: 4px 0 18px; scrollbar-width: none; overscroll-behavior-x: contain;
+  }
+  #work .work-stack::-webkit-scrollbar { display: none; }
+  #work .stack-card.reveal {
+    position: relative; inset: auto; flex: 0 0 88%; min-width: 0;
+    display: flex; flex-direction: column; gap: 22px; height: auto; min-height: 340px;
+    aspect-ratio: auto; padding: 24px 20px; scroll-snap-align: start;
+    opacity: 1; transform: none !important; transition: none;
+  }
+  #work .stack-heading { font-size: 1.25rem; line-height: 1.4; }
+  #work .stack-desc { font-size: .9rem; line-height: 1.8; }
+  #work .stack-content { user-select: text; }
+  #work .stack-content small { font-size: .6rem; letter-spacing: .05em; overflow-wrap: anywhere; }
+  .work-mobile-controls { display: flex; align-items: center; justify-content: center; gap: 24px; color: #796342; font: 12px/1.4 monospace; }
+  .work-mobile-controls button { width: 44px; height: 44px; background: none; border: 0; color: #796342; font-size: 24px; cursor: pointer; }
+  .work-mobile-controls button:disabled { opacity: .3; cursor: default; }
+  #tools .tool-grid { grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; max-width: none; gap: 14px 12px; align-items: start; }
+  #tools .tool-card { display: flex; flex-direction: column; gap: 10px; min-height: 190px; padding: 16px 12px; height: auto; }
+  #tools .tool-top { width: 100%; }
+  #tools .tool-top b { display: none; }
+  #tools .tool-card h3 { font-size: 1.15rem; margin: 0; align-self: start; }
+  #tools .tool-card p { margin: 0; font-size: .8rem; line-height: 1.65; }
+  #tools .tool-card small { font-size: .56rem; overflow-wrap: anywhere; }
+  #tools .tool-card [hidden] { display: none !important; }
+  #tools .tool-disclosure { display: block; margin-top: auto; text-align: left; padding: 8px 0; min-height: 44px; background: none; border: 0; color: #796342; font-family: inherit; font-size: 12px; line-height: 1.4; cursor: pointer; }
+  .tool-disclosure:focus-visible, .work-mobile-controls button:focus-visible { outline: 2px solid #9a7844; outline-offset: 2px; }
+}
