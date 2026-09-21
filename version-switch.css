@@ -1,4 +1,31 @@
 /* Shared navigation independent of either site's scripts and theme. */
+/* V2 edition selector. Legacy link rules below remain available to the archive. */
+.edition-picker { position: relative; color: #44382a; pointer-events: auto; }
+.edition-picker summary {
+  position: relative; display: flex; align-items: center; gap: .65rem;
+  min-height: 44px; padding: .4rem .25rem; cursor: pointer; list-style: none;
+  font: 400 15px/1.2 Georgia, "Times New Roman", serif; letter-spacing: .03em;
+}
+.edition-picker summary::-webkit-details-marker { display: none; }
+.edition-number { font-size: 19px; }
+.edition-chevron { width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); transition: transform 220ms ease; margin: 0 .2rem .2rem; }
+.edition-picker[open] .edition-chevron { transform: rotate(225deg); }
+.edition-picker summary::after { content: ""; position: absolute; bottom: 4px; left: .25rem; right: .25rem; height: 1px; background: #b99a60; transform: scaleX(.25); transform-origin: right; transition: transform 250ms ease; }
+.edition-picker summary:hover::after, .edition-picker[open] summary::after { transform: scaleX(1); }
+.edition-picker summary:focus-visible, .edition-option:focus-visible { outline: 2px solid #937039; outline-offset: 4px; }
+.edition-menu { position: absolute; right: 0; top: calc(100% + .65rem); width: min(260px, calc(100vw - 3rem)); padding: 1rem; border: 1px solid #e5ded1; border-radius: 4px 4px 12px 4px; background: #fcfaf5; box-shadow: 0 2px 0 #e7dfd1, 0 14px 34px rgba(65,51,31,.12); }
+.edition-menu-label { display: block; padding: .2rem .4rem .8rem; font: 10px/1.4 system-ui, sans-serif; letter-spacing: .12em; color: #746650; }
+.edition-option { display: grid; grid-template-columns: 2rem 1fr auto; align-items: center; gap: .6rem; padding: .85rem .4rem; color: #44382a; font: 14px/1.4 system-ui, sans-serif; text-decoration: none; border-top: 1px solid #e8e1d5; border-radius: 3px; }
+.edition-index { font: 22px/1 Georgia, serif; color: #947848; }
+.edition-option small { display: block; margin-top: .25rem; font-size: 11px; color: #7a7061; }
+.edition-option--current { background: #f2ede2; }
+a.edition-option:hover { background: #f5efdf; }
+.opening-pending .edition-picker, body.is-opening .edition-picker { visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .edition-picker[open] .edition-menu { animation: edition-arrive 260ms cubic-bezier(.16,1,.3,1); }
+  @keyframes edition-arrive { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { .edition-picker summary::after, .edition-chevron { transition: none; } }
 .site-header .version-switch {
   display: inline-flex;
   align-items: center;

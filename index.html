@@ -7,7 +7,7 @@
   <meta name="description" content="OAIOIL - AI-Augmented Product Manager portfolio" />
   <meta name="site-version" content="2.0" />
   <link rel="canonical" href="https://oaioil.cn/" />
-  <link rel="stylesheet" href="version-switch.css" />
+  <link rel="stylesheet" href="version-switch.css?v=edition-v1" />
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%2315161c"/><path d="M13 48 28 12h8l15 36h-9l-4-10H26l-4 10h-9Zm16-18h6l-3-8-3 8Z" fill="%23ff5a1f"/></svg>' />
   <script>
     (() => {
@@ -32,7 +32,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="css/main.css?v=porcelain-v1" />
+  <link rel="stylesheet" href="css/main.css?v=signature-v1" />
 </head>
 <body data-theme="mint">
   <div class="loader" aria-hidden="true">
@@ -66,7 +66,14 @@
       <img class="brand-symbol" src="assets/logo-sliced-o.svg?v=logo-about-r6" alt="" />
       <strong>OAIOIL</strong>
     </a>
-    <a class="version-switch" href="v1/" aria-label="切换到经典版 1.0">经典版 1.0 <span aria-hidden="true">↗</span></a>
+    <details class="edition-picker">
+      <summary aria-label="选择网站版本">Edition <span class="edition-number">02</span><span class="edition-chevron" aria-hidden="true"></span></summary>
+      <nav class="edition-menu" aria-label="网站版本">
+        <span class="edition-menu-label">网站版本 / EDITIONS</span>
+        <span class="edition-option edition-option--current" aria-current="page"><span class="edition-index">02</span><span>雕塑版<small>当前版本</small></span><span aria-hidden="true">✓</span></span>
+        <a class="edition-option" href="v1/"><span class="edition-index">01</span><span>经典版<small>回到最初的表达</small></span><span aria-hidden="true">↗</span></a>
+      </nav>
+    </details>
   </header>
 
   <main>
@@ -94,7 +101,7 @@
           </div>
         </div>
 
-        <div class="hero-signature" aria-hidden="true">Zhang Yu</div>
+        <div class="hero-signature" aria-hidden="true"><img src="assets/signature-zhang-yu-v1.png" width="2196" height="497" alt="" decoding="async" /></div>
 
         <div class="hero-copy">
           <p class="hero-roleline">AI PRODUCT MANAGER</p>
@@ -477,6 +484,7 @@
     <script src="js/editorial-portfolio.js?v=refinement-v5"></script>
     <script src="js/capability-carousel.js?v=refinement-v5"></script>
   <script src="js/theme-dock.js"></script>
+  <script src="js/edition-picker.js?v=edition-v1"></script>
   <script src="js/contact-actions.js"></script>
     <script src="js/card-effects.js?v=refinement-v2"></script>
 </body>
