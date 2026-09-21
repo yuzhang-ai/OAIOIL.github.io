@@ -113,7 +113,7 @@
       if (finished) return;
       body.classList.add("is-opening");
       // Event-driven completion; timeout only protects missing animation events.
-      naturalTimer = window.setTimeout(finish, 2400);
+      naturalTimer = window.setTimeout(finish, 4400);
     });
     addInterrupts();
     loader?.addEventListener("animationend", onOpeningEnd);

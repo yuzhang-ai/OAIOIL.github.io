@@ -36,7 +36,7 @@ function scenario({ pending = true, reduced = false, brokenStorage = false } = {
   assert.equal(escape.root.dataset.opening, 'complete'); assert.equal(escape.timers.size,0);
   const early = scenario(); early.skip.events.get('click')({type:'click'}); await Promise.resolve();
   assert.equal(early.root.dataset.opening, 'complete'); assert.equal(early.timers.size,0);
-  const storage = scenario({brokenStorage:true}); await Promise.resolve(); storage.run(0); storage.run(2400);
+  const storage = scenario({brokenStorage:true}); await Promise.resolve(); storage.run(0); storage.run(4400);
   assert.equal(storage.root.dataset.opening, 'complete');
   for (const options of [{pending:false}, {reduced:true}]) {
     const s = scenario(options); assert.equal(s.root.dataset.opening,'complete'); assert.equal(s.timers.size,0);

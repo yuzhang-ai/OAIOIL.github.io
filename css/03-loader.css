@@ -116,16 +116,23 @@ html[data-opening-preview="true"] .opening-replay {
   display: inline-flex;
 }
 
-body.is-opening .loader__o-upper { animation: opening-upper 700ms cubic-bezier(0.22, 0.78, 0.2, 1) 450ms both; }
-body.is-opening .loader__o-lower { animation: opening-lower 700ms cubic-bezier(0.22, 0.78, 0.2, 1) 450ms both; }
-body.is-opening .loader__o-upper-depth { animation: opening-upper-depth 700ms cubic-bezier(0.22, 0.78, 0.2, 1) 450ms both; }
-body.is-opening .loader__o-lower-depth { animation: opening-lower-depth 700ms cubic-bezier(0.22, 0.78, 0.2, 1) 450ms both; }
-body.is-opening .loader__cut-face { animation: opening-glint 420ms ease 760ms both; }
-body.is-opening .loader__o-stone { animation: opening-stone-flatten 350ms ease 1150ms both; }
-body.is-opening .loader__o-flat { animation: opening-flat-in 350ms ease 1150ms both; }
-body.is-opening .loader__wordmark { animation: opening-wordmark 350ms cubic-bezier(0.22, 0.78, 0.2, 1) 1150ms both; }
-body.is-opening .loader__mark { animation: opening-dock 2100ms cubic-bezier(0.22, 0.78, 0.2, 1) both; }
-body.is-opening .loader { animation: opening-reveal 600ms ease 1500ms both; }
+/* Four-second timeline: preserve the overlapping choreography at a calmer tempo. */
+body.is-opening .loader__o-upper { animation: opening-upper 1077ms cubic-bezier(0.22, 0.78, 0.2, 1) 692ms both; }
+body.is-opening .loader__o-lower { animation: opening-lower 1077ms cubic-bezier(0.22, 0.78, 0.2, 1) 692ms both; }
+body.is-opening .loader__o-upper-depth { animation: opening-upper-depth 1077ms cubic-bezier(0.22, 0.78, 0.2, 1) 692ms both; }
+body.is-opening .loader__o-lower-depth { animation: opening-lower-depth 1077ms cubic-bezier(0.22, 0.78, 0.2, 1) 692ms both; }
+body.is-opening .loader__cut-face { animation: opening-glint 646ms ease 1169ms both; }
+body.is-opening .loader__o-stone { animation: opening-stone-flatten 538ms ease 1769ms both; }
+body.is-opening .loader__o-flat { animation: opening-flat-in 538ms ease 1769ms both; }
+body.is-opening .loader__wordmark { animation: opening-wordmark 538ms cubic-bezier(0.22, 0.78, 0.2, 1) 1769ms both; }
+body.is-opening .loader__mark { animation: opening-dock 3846ms linear both; }
+body.is-opening .loader { animation: opening-reveal 2000ms cubic-bezier(0.3, 0, 0.22, 1) 2000ms both; }
+
+/* Animate the inner scene, leaving the scroll-driven mask/image transforms alone. */
+body.is-opening .hero-visual {
+  transform-origin: 68% 55%;
+  animation: opening-sculpture 2000ms cubic-bezier(0.16, 1, 0.3, 1) 2000ms both;
+}
 
 .loader.is-hidden {
   display: none;
@@ -158,8 +165,14 @@ body.is-opening .grain { animation-play-state: paused; }
 @keyframes opening-flat-in { to { opacity: 1; } }
 
 @keyframes opening-dock {
-  0%, 54.76% { transform: translate3d(0, 0, 0) scale(1); }
-  71.43% { transform: translate3d(var(--opening-form-x, 0px), var(--opening-form-y, 0px), 0) scale(var(--opening-form-scale, 0.5)); }
+  0%, 46% {
+    transform: translate3d(0, 0, 0) scale(1);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+  }
+  60% {
+    transform: translate3d(var(--opening-form-x, 0px), var(--opening-form-y, 0px), 0) scale(var(--opening-form-scale, 0.5));
+    animation-timing-function: cubic-bezier(0.22, 0.7, 0.18, 1);
+  }
   to { transform: translate3d(var(--opening-dock-x, 0px), var(--opening-dock-y, 0px), 0) scale(var(--opening-dock-scale, 0.2)); }
 }
 
@@ -167,14 +180,20 @@ body.is-opening .grain { animation-play-state: paused; }
   to { opacity: 0; }
 }
 
+@keyframes opening-sculpture {
+  from { transform: scale(1.025); }
+  to { transform: scale(1); }
+}
+
 @media (max-width: 600px) {
   body.is-opening .loader__wordmark {
-    animation-delay: 1450ms;
-    animation-duration: 50ms;
+    animation-delay: 2231ms;
+    animation-duration: 77ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .loader,
   .opening-replay { display: none !important; }
+  body.is-opening .hero-visual { animation: none; transform: none; }
 }
