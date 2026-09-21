@@ -1,25 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OAIOIL | AI-Augmented Product Manager</title>
   <meta name="description" content="OAIOIL - AI-Augmented Product Manager portfolio" />
+  <meta name="site-version" content="2.0" />
+  <link rel="canonical" href="https://oaioil.cn/" />
+  <link rel="stylesheet" href="version-switch.css" />
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%2315161c"/><path d="M13 48 28 12h8l15 36h-9l-4-10H26l-4 10h-9Zm16-18h6l-3-8-3 8Z" fill="%23ff5a1f"/></svg>' />
-  <link rel="stylesheet" href="styles.css?v=header-text-1" />
+  <script>
+    (() => {
+      const root = document.documentElement;
+      try {
+        const params = new URLSearchParams(location.search);
+        const forced = params.get("intro") === "1";
+        const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const seen = sessionStorage.getItem("oaioil-opening-v1") === "complete";
+        const shouldPlay = forced || (!location.hash && !reduced && !seen);
+        if (forced) root.dataset.openingPreview = "true";
+        if (!shouldPlay) return;
+        root.classList.add("opening-pending");
+        root.dataset.opening = "pending";
+        window.__oaioilOpeningFailOpen = window.setTimeout(() => {
+          root.classList.remove("opening-pending", "opening-started");
+          root.dataset.opening = "failed-open";
+          document.body?.classList.remove("is-loading", "is-opening");
+        }, 3500);
+      } catch {
+        root.dataset.opening = "storage-unavailable";
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/main.css?v=opening-v1" />
 </head>
 <body data-theme="mint">
   <div class="loader" aria-hidden="true">
-    <div class="loader__shape" aria-label="OAIOIL">
-      <span>O</span>
-      <span>A</span>
-      <span>I</span>
-      <span>O</span>
-      <span>I</span>
-      <span>L</span>
+    <div class="loader__mark">
+      <svg class="loader__o" viewBox="0 0 56 56" aria-hidden="true">
+        <defs>
+          <path id="opening-o-ring" fill-rule="evenodd" d="M28 3.5C40.4 3.5 50.5 14.5 50.5 28S40.4 52.5 28 52.5 5.5 41.5 5.5 28 15.6 3.5 28 3.5Zm0 1.5C21.9 5 17 15.3 17 28s4.9 23 11 23 11-10.3 11-23S34.1 5 28 5Z"/>
+          <clipPath id="opening-o-upper" clipPathUnits="userSpaceOnUse"><path d="M0 0H56V16.5L0 29.4Z"/></clipPath>
+          <clipPath id="opening-o-lower" clipPathUnits="userSpaceOnUse"><path d="M0 33L56 20.1V56H0Z"/></clipPath>
+          <clipPath id="opening-o-shape" clipPathUnits="userSpaceOnUse"><use href="#opening-o-ring"/></clipPath>
+          <pattern id="opening-stone" width="56" height="56" patternUnits="userSpaceOnUse"><image href="assets/about-stone-gold-v1.webp" width="84" height="56" preserveAspectRatio="xMidYMid slice"/></pattern>
+        </defs>
+        <g class="loader__o-stone"><g class="loader__o-upper-depth" clip-path="url(#opening-o-upper)"><use href="#opening-o-ring" fill="#62594e"/></g><g class="loader__o-lower-depth" clip-path="url(#opening-o-lower)"><use href="#opening-o-ring" fill="#62594e"/></g><g class="loader__o-upper" clip-path="url(#opening-o-upper)"><use href="#opening-o-ring" fill="url(#opening-stone)" stroke="#fffaf0" stroke-opacity=".5" stroke-width=".45"/></g><g class="loader__o-lower" clip-path="url(#opening-o-lower)"><use href="#opening-o-ring" fill="url(#opening-stone)" stroke="#fffaf0" stroke-opacity=".5" stroke-width=".45"/><g clip-path="url(#opening-o-shape)"><path class="loader__cut-face" d="M0 33.7 56 20.8 56 21.8 0 34.7Z"/></g></g></g>
+        <g class="loader__o-flat">
+          <g clip-path="url(#opening-o-upper)" transform="translate(.45 -.4)"><use href="#opening-o-ring" fill="#2e2a27"/></g>
+          <g clip-path="url(#opening-o-lower)" transform="translate(-.45 .4)"><use href="#opening-o-ring" fill="#2e2a27"/><g clip-path="url(#opening-o-shape)"><path fill="#b49367" d="M0 33.7 56 20.8 56 21.8 0 34.7Z"/></g></g>
+        </g>
+      </svg>
+      <span class="loader__wordmark">OAIOIL</span>
     </div>
-    <div class="loader__caption">PRODUCT SYSTEM BOOTING</div>
+    <button class="loader__skip" type="button">Skip opening</button>
   </div>
+  <button class="opening-replay" type="button" aria-label="Replay opening">Replay opening</button>
 
   <canvas id="atmosphere" aria-hidden="true"></canvas>
   <div class="ambient-lines" aria-hidden="true"></div>
@@ -27,8 +63,10 @@
 
   <header class="site-header">
     <a class="brand-mark" href="#hero" aria-label="Back to top">
+      <img class="brand-symbol" src="assets/logo-sliced-o.svg?v=logo-about-r6" alt="" />
       <strong>OAIOIL</strong>
     </a>
+    <a class="version-switch" href="v1/" aria-label="切换到经典版 1.0">经典版 1.0 <span aria-hidden="true">↗</span></a>
   </header>
 
   <main>
@@ -50,7 +88,7 @@
         <div class="hero-mask" aria-hidden="true">
           <div class="hero-visual">
             <div class="portrait-frame">
-              <img src="assets/portrait.jpg" alt="" />
+              <img src="assets/sculpture-hero.png" alt="" />
               <div class="portrait-wash"></div>
             </div>
           </div>
@@ -59,26 +97,50 @@
         <div class="hero-signature" aria-hidden="true">Zhang Yu</div>
 
         <div class="hero-copy">
-          <p class="eyebrow reveal">PRODUCT · AI · WORKFLOW / 2026</p>
-          <h1 class="hero-title sr-only">OAIOIL</h1>
-        </div>
-
-        <div class="hero-role reveal">
-          <span>ROLE</span>
-          <strong>AI-AUGMENTED<br>PRODUCT MANAGER</strong>
-        </div>
-        <div class="hero-promise reveal">
-          <span></span>
-          <strong>Product Thinking<br>Workflow Design<br>Commercial Strategy</strong>
+          <p class="hero-roleline">AI PRODUCT MANAGER</p>
+          <h1 class="hero-title">Product <span class="hero-title__mark">×</span> AI<br><span class="hero-title__mark">×</span> Creation</h1>
+          <span class="hero-copy__rule" aria-hidden="true"></span>
+          <p class="hero-subtitle">把模糊的想法，做成真实的东西。</p>
+          <p class="hero-subtitle-en">Turn vague ideas into things that exist.</p>
+          <a class="hero-explore" href="#about">Explore <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </section>
 
     <section id="about" class="about-section">
-      <canvas id="about-field" aria-hidden="true"></canvas>
+      <img class="about-stone-image" src="assets/about-stone-gold-v1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      <canvas id="about-gold-fx" aria-hidden="true"></canvas>
+      <noscript>
+        <style>
+          .loader {
+            display: none !important;
+          }
+
+          body.is-loading {
+            overflow: auto !important;
+          }
+
+          .about-section .reveal,
+          .about-section .section-title.reveal,
+          .about-section .letter-word,
+          .about-section .letter-copy {
+            opacity: 1 !important;
+            transform: none !important;
+          }
+
+          .about-section .section-title.reveal {
+            --title-progress: 1;
+          }
+
+          .about-section .letter-word,
+          .about-section .letter-copy {
+            pointer-events: auto !important;
+            user-select: text !important;
+          }
+        </style>
+      </noscript>
       <div class="section-title reveal">
-        <p class="eyebrow">ABOUT ME</p>
-        <h2>ABOUT ME</h2>
+        <h2>About me</h2>
         <p>OAIOIL 的六个字母，是关于我的六个关键词，让你更快了解我。</p>
       </div>
       <div class="letter-lab reveal">
@@ -139,6 +201,63 @@
       </div>
     </section>
 
+    <section id="portfolio" class="section portfolio-editorial" aria-labelledby="portfolio-title">
+      <div class="section-title reveal">
+        <p class="eyebrow">SELECTED EXPLORATIONS</p>
+        <h2 id="portfolio-title">Selected <em>works.</em></h2>
+        <p>一些从兴趣出发，也在真实问题中生长的作品。</p>
+      </div>
+      <div class="portfolio-spread reveal" data-portfolio-spread>
+        <div class="portfolio-plate" aria-hidden="true">
+          <figure class="portfolio-page portfolio-page--melovista is-front" data-portfolio-page="melovista">
+            <img src="assets/portfolio-melovista.webp" alt="MeloVista 钢琴与海景界面截图" loading="lazy" decoding="async" />
+            <figcaption>琴窗 MeloVista</figcaption>
+          </figure>
+          <article class="portfolio-page portfolio-page--ai is-middle" data-portfolio-page="ai">
+            <span class="portfolio-page__index">02 / MVP EXPLORATION</span>
+            <p class="portfolio-page__kicker">AI LANDING PAGE</p>
+            <h3>从需求梳理<br>到统一编辑<br><i>再到生成探索。</i></h3>
+            <p>产品探索路径</p>
+          </article>
+          <article class="portfolio-page portfolio-page--skills is-back" data-portfolio-page="skills">
+            <span class="portfolio-page__index">03 / PRACTICE INDEX</span>
+            <p class="portfolio-page__kicker">SKILLS COLLECTION</p>
+            <dl>
+              <div><dt>自建工作流</dt><dd>Codex UI Designer Kit</dd></div>
+              <div><dt>开源扩展</dt><dd>AI Video Transcriber</dd></div>
+              <div><dt>实践应用</dt><dd>会议预约 · 录制查询 · 人工确认</dd></div>
+            </dl>
+          </article>
+        </div>
+        <div class="portfolio-directory">
+          <div class="portfolio-tablist" aria-label="Selected studies">
+            <button class="portfolio-selector is-current" id="portfolio-selector-melovista" type="button" aria-expanded="true" aria-controls="portfolio-melovista" data-portfolio-select="melovista">
+              <span>01</span><strong>MeloVista</strong><i>浏览器钢琴</i>
+            </button>
+            <div class="portfolio-note is-current" id="portfolio-melovista" role="region" aria-labelledby="portfolio-selector-melovista" data-portfolio-note="melovista">
+              <p>把钢琴、场景与练习放进同一个浏览器琴房。探索音乐体验，也把个人兴趣做成可体验的作品。</p>
+              <a href="https://github.com/yuzhang-ai/melovista" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+              <a href="https://melovista.vercel.app/" target="_blank" rel="noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+            </div>
+            <button class="portfolio-selector" id="portfolio-selector-ai" type="button" aria-expanded="false" aria-controls="portfolio-ai" data-portfolio-select="ai">
+              <span>02</span><strong>AI 落地页探索</strong><i>MVP 探索</i>
+            </button>
+            <div class="portfolio-note" id="portfolio-ai" role="region" aria-labelledby="portfolio-selector-ai" data-portfolio-note="ai" hidden>
+              <p>围绕快速搭建与精细调整，探索需求梳理、统一编辑和 AI 生成之间的协作方式。</p>
+            </div>
+            <button class="portfolio-selector" id="portfolio-selector-skills" type="button" aria-expanded="false" aria-controls="portfolio-skills" data-portfolio-select="skills">
+              <span>03</span><strong>Skills 合集</strong><i>方法与归属</i>
+            </button>
+            <div class="portfolio-note" id="portfolio-skills" role="region" aria-labelledby="portfolio-selector-skills" data-portfolio-note="skills" hidden>
+              <p><b>自建工作流：</b>UI Designer Kit 用于界面实现协作。<br><b>开源扩展：</b>AI Video Transcriber 基于公开上游能力扩展。<br><b>实践应用：</b>会议预约、录制查询和人工确认。</p>
+              <a href="https://github.com/yuzhang-ai/ai-video-transcriber" target="_blank" rel="noreferrer">Transcriber <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/yuzhang-ai/codex-ui-designer-kit" target="_blank" rel="noreferrer">UI Designer Kit <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="capabilities" class="section section--cinematic">
       <div class="section-title reveal">
         <p class="eyebrow">WHAT I CAN DO</p>
@@ -147,36 +266,36 @@
       </div>
       <div class="carousel-shell reveal" aria-label="Capabilities carousel">
         <button class="carousel-button carousel-button--prev" type="button" aria-label="Previous capability"><span aria-hidden="true">‹</span></button>
-        <div class="capability-orbit" aria-label="Capabilities">
+        <div class="capability-orbit" aria-label="Capabilities" tabindex="0">
         <article class="orbit-card" data-carousel-card>
           <span>01</span>
-          <h3>数据洞察</h3>
-          <p>从数据波动、用户行为和业务指标里找到问题，不只看结果，也追问背后的原因。</p>
-          <small>Data Insight · SQL</small>
+          <h3>产品探索</h3>
+          <p>从模糊需求出发，通过竞品拆解、交互原型与实际反馈，逐步找到值得做的产品方向。</p>
+          <small>Product Discovery · Prototype</small>
         </article>
         <article class="orbit-card" data-carousel-card>
           <span>02</span>
-          <h3>需求定义</h3>
-          <p>把模糊想法拆成真实场景、用户动机和产品目标，先定义问题，再设计功能。</p>
-          <small>User Scenario · PRD</small>
+          <h3>体验设计</h3>
+          <p>梳理用户操作路径，在上手效率与精细控制之间做取舍，让复杂功能更容易使用。</p>
+          <small>User Journey · UX Design</small>
         </article>
         <article class="orbit-card" data-carousel-card>
           <span>03</span>
-          <h3>方案拆解</h3>
-          <p>把复杂目标拆成路径、模块、优先级和 MVP，让方案从“想法”变成可执行计划。</p>
-          <small>MVP · Roadmap · Flow</small>
+          <h3>Agent 设计</h3>
+          <p>围绕具体任务组织上下文、工具与结果校验，让 AI 能根据执行反馈继续调整。</p>
+          <small>Agent · Context · Evaluation</small>
         </article>
         <article class="orbit-card" data-carousel-card>
           <span>04</span>
-          <h3>协作推进</h3>
-          <p>在产品、研发、运营和设计之间对齐信息、拆清边界，推动项目稳定落地。</p>
-          <small>Cross-team · Delivery · Review</small>
+          <h3>工作流落地</h3>
+          <p>把业务规则转成可复用的 Skill 与自动化流程，明确人工确认、异常处理和恢复路径。</p>
+          <small>Skills · Workflow · Recovery</small>
         </article>
         <article class="orbit-card" data-carousel-card>
           <span>05</span>
-          <h3>AI 提效</h3>
-          <p>用 AI 辅助调研、分析、文档、原型、代码和知识整理，把工具变成工作流。</p>
-          <small>AI Workflow · Prompt · Automation</small>
+          <h3>数据与商业判断</h3>
+          <p>结合用户行为、业务指标与风险约束，判断方案的价值、优先级和验证方式。</p>
+          <small>Data Insight · Business Strategy</small>
         </article>
         </div>
         <button class="carousel-button carousel-button--next" type="button" aria-label="Next capability"><span aria-hidden="true">›</span></button>
@@ -194,46 +313,46 @@
         <article class="stack-card reveal">
           <span class="stack-number">01</span>
           <div class="stack-content">
-            <p class="stack-meta">Business · Search Strategy</p>
-            <h3 class="stack-heading">搜索商业化策略设计</h3>
-            <p class="stack-desc">围绕医药搜索场景，参与 Query 准入、风险分层、相关性校验与扩召回接入。把用户搜索词拆解成可判断、可流转、可商业化的策略单元，在安全边界内提升流量利用效率。</p>
-            <small>Query Strategy · Risk Control · Recall</small>
+            <p class="stack-meta">Product · Experience Design</p>
+            <h3 class="stack-heading">落地页搭建与编辑体系</h3>
+            <p class="stack-desc">围绕快速搭建与精细调整的不同需求，协同 AI 迭代交互原型，结合实际搭建体验与反馈，将固定区块堆叠逐步收敛为统一编辑方案。</p>
+            <small>Product Exploration · UX · MVP</small>
           </div>
         </article>
         <article class="stack-card reveal">
           <span class="stack-number">02</span>
           <div class="stack-content">
-            <p class="stack-meta">Content · Product Design</p>
-            <h3 class="stack-heading">内容分发与找剧路径优化</h3>
-            <p class="stack-desc">针对短剧剧场频道，参与页面结构重组、筛选体系设计、新剧预约与剧宣社区搭建。把分散的内容入口整理成更清晰的找剧路径，让用户更快发现想看的内容。</p>
-            <small>Content Distribution · C-end Product · Conversion</small>
+            <p class="stack-meta">AI · Agent Design</p>
+            <h3 class="stack-heading">页面生成 Agent 设计</h3>
+            <p class="stack-desc">从现成平台验证走向页面专用 Agent，围绕页面状态、工具执行与结果反馈，探索生成、连续修改和参考复刻，让 AI 不只输出页面，也能检查和调整。</p>
+            <small>Agent · Harness · Feedback Loop</small>
           </div>
         </article>
         <article class="stack-card reveal">
           <span class="stack-number">03</span>
           <div class="stack-content">
-            <p class="stack-meta">AI · Agent Building</p>
-            <h3 class="stack-heading">AI Agent 全链路搭建</h3>
-            <p class="stack-desc">从角色设定、知识库建设、Prompt 调优到发布优化，独立完成智能体搭建流程。关注多轮对话稳定性、知识调用准确率和文本输出体验，让 Agent 不只是能回答，而是能持续服务。</p>
-            <small>Agent · Knowledge Base · Prompt</small>
+            <p class="stack-meta">Automation · Workflow Design</p>
+            <h3 class="stack-heading">业务 Skill 与工作流优化</h3>
+            <p class="stack-desc">将会议预约、录制获取、记录同步等任务封装为可复用 Skill；结合真实使用中的异常，完善人工确认、结果核对与遗漏补偿，让自动化过程可追踪、可恢复。</p>
+            <small>Skills · Automation · Human-in-the-loop</small>
           </div>
         </article>
         <article class="stack-card reveal">
           <span class="stack-number">04</span>
           <div class="stack-content">
-            <p class="stack-meta">IoT · Smart Control</p>
-            <h3 class="stack-heading">语音控制灯光系统</h3>
-            <p class="stack-desc">基于树莓派、服务器与微信小程序，搭建软硬件协同的智能灯光控制系统。完成语音识别、远程开关、设备状态记录与定时任务等核心功能设计。</p>
-            <small>Raspberry Pi · Voice Control · IoT</small>
+            <p class="stack-meta">Business · Search Strategy</p>
+            <h3 class="stack-heading">搜索商业化策略设计</h3>
+            <p class="stack-desc">围绕医药搜索场景，参与 Query 准入、风险分层、相关性校验与扩召回策略，在用户需求、业务收益与安全边界之间寻找平衡。</p>
+            <small>Query Strategy · Risk Control · Recall</small>
           </div>
         </article>
         <article class="stack-card reveal">
           <span class="stack-number">05</span>
           <div class="stack-content">
-            <p class="stack-meta">Robot · Team Delivery</p>
-            <h3 class="stack-heading">机器人协同表演项目</h3>
-            <p class="stack-desc">负责机器人舞蹈与小车项目的程序逻辑、动作编排和现场调试，统筹团队分工与交付节奏。把创意、代码、硬件和现场执行整合成完整作品。</p>
-            <small>Robotics · Coding · Delivery</small>
+            <p class="stack-meta">Content · Product Design</p>
+            <h3 class="stack-heading">内容分发与找剧路径优化</h3>
+            <p class="stack-desc">围绕短剧内容发现，参与频道结构、筛选体系、新剧预约与剧宣社区设计，将分散入口组织成更清晰的找剧路径。</p>
+            <small>Content Discovery · User Journey · Product Design</small>
           </div>
         </article>
         </div>
@@ -244,7 +363,7 @@
       <div class="section-title reveal">
         <p class="eyebrow">TOOLS / COLLABORATORS</p>
         <h2>COLLABORATORS</h2>
-        <p>我不是一个人在工作 —— 这是我和它们之间的分工。</p>
+        <p>我不是一个人在工作，这是我和它们之间的分工。</p>
       </div>
       <div class="tool-grid">
         <p class="tool-group-label">[ AI PARTNERS ]</p>
@@ -252,7 +371,7 @@
           <div class="tool-top"><span class="tool-icon"><img src="assets/tool-chatgpt.png" alt=""></span><b>[AI]</b></div>
           <h3>ChatGPT</h3>
           <p>思维副驾</p>
-          <p>把模糊问题聊清楚。策略、文案、竞品、复盘——我用它快速搭框架，再用自己的判断筛选和修正。</p>
+          <p>把模糊问题聊清楚。策略、文案、竞品、复盘，我用它快速搭框架，再用自己的判断筛选和修正。</p>
           <small>Strategy · Writing · Reasoning</small>
         </article>
         <article class="tool-card reveal tool-card--ai" data-tilt>
@@ -268,6 +387,13 @@
           <p>文本杂务</p>
           <p>日常文本的批量处理器。邮件、翻译、纪要、摘要，琐碎交给它，我把注意力留给更高阶判断。</p>
           <small>Copy · Translate · Summary</small>
+        </article>
+        <article class="tool-card reveal tool-card--ai" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-deepseek.svg" alt=""></span><b>[AI]</b></div>
+          <h3>DeepSeek</h3>
+          <p>推理备选</p>
+          <p>用不同模型交叉检查思路与表达；结论仍需要回到任务语境和人工判断。</p>
+          <small>Reasoning · Review · Compare</small>
         </article>
         <p class="tool-group-label tool-group-label--second">[ CRAFT + INFRASTRUCTURE ]</p>
         <article class="tool-card reveal tool-card--infra" data-tilt>
@@ -290,6 +416,13 @@
           <p>知识协作系统</p>
           <p>文档、表格、知识库、项目进度和会议纪要都在这里汇总。它是团队协作的信息底座，也是推进事情的仪表盘。</p>
           <small>Docs · Base · Collaboration</small>
+        </article>
+        <article class="tool-card reveal tool-card--infra" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-n8n.svg" alt=""></span><b>[Flow]</b></div>
+          <h3>n8n</h3>
+          <p>流程编排</p>
+          <p>把重复的信息处理连成可观察的流程，并把需要判断的环节留给人工确认。</p>
+          <small>Automation · Orchestration · Review</small>
         </article>
       </div>
     </section>
@@ -328,6 +461,19 @@
   </main>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="script.js?v=loader-fix-1"></script>
+  <script src="js/core.js?v=opening-v1"></script>
+  <script src="js/scroll-effects.js?v=sculpture-r7"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/smooth-scroll.js?v=explore-slow-r1"></script>
+  <script src="js/loader.js?v=opening-v1"></script>
+  <script src="js/canvas-fields.js?v=about-material-v3"></script>
+    <script src="js/about-keywords.js?v=editorial-v2"></script>
+    <script src="js/about-material.js?v=editorial-v2"></script>
+    <script src="js/editorial-portfolio.js?v=refinement-v5"></script>
+    <script src="js/capability-carousel.js?v=refinement-v5"></script>
+  <script src="js/theme-dock.js"></script>
+  <script src="js/contact-actions.js"></script>
+    <script src="js/card-effects.js?v=refinement-v2"></script>
 </body>
 </html>
+

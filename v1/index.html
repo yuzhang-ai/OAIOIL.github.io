@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OAIOIL | AI-Augmented Product Manager</title>
+  <meta name="description" content="OAIOIL - AI-Augmented Product Manager portfolio" />
+  <meta name="site-version" content="1.0" />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="stylesheet" href="../version-switch.css" />
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%2315161c"/><path d="M13 48 28 12h8l15 36h-9l-4-10H26l-4 10h-9Zm16-18h6l-3-8-3 8Z" fill="%23ff5a1f"/></svg>' />
+  <link rel="stylesheet" href="styles.css?v=header-text-1" />
+</head>
+<body data-theme="mint">
+  <div class="loader" aria-hidden="true">
+    <div class="loader__shape" aria-label="OAIOIL">
+      <span>O</span>
+      <span>A</span>
+      <span>I</span>
+      <span>O</span>
+      <span>I</span>
+      <span>L</span>
+    </div>
+    <div class="loader__caption">PRODUCT SYSTEM BOOTING</div>
+  </div>
+
+  <canvas id="atmosphere" aria-hidden="true"></canvas>
+  <div class="ambient-lines" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand-mark" href="#hero" aria-label="Back to top">
+      <strong>OAIOIL</strong>
+    </a>
+    <a class="version-switch" href="../" aria-label="切换到新版 2.0">新版 2.0 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-scroll">
+      <div class="hero-stage">
+        <div class="hero-marquee hero-marquee--top" aria-hidden="true">
+          <div class="marquee-track">
+            <span>COMMERCIAL LOGIC · PRODUCT · OAIOIL · EXPLORE ·</span>
+            <span>COMMERCIAL LOGIC · PRODUCT · OAIOIL · EXPLORE ·</span>
+          </div>
+        </div>
+        <div class="hero-marquee hero-marquee--bottom" aria-hidden="true">
+          <div class="marquee-track marquee-track--reverse">
+            <span>COMMERCIAL LOGIC · PRODUCT · OAIOIL · EXPLORE ·</span>
+            <span>COMMERCIAL LOGIC · PRODUCT · OAIOIL · EXPLORE ·</span>
+          </div>
+        </div>
+
+        <div class="hero-mask" aria-hidden="true">
+          <div class="hero-visual">
+            <div class="portrait-frame">
+              <img src="assets/portrait.jpg" alt="" />
+              <div class="portrait-wash"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-signature" aria-hidden="true">Zhang Yu</div>
+
+        <div class="hero-copy">
+          <p class="eyebrow reveal">PRODUCT · AI · WORKFLOW / 2026</p>
+          <h1 class="hero-title sr-only">OAIOIL</h1>
+        </div>
+
+        <div class="hero-role reveal">
+          <span>ROLE</span>
+          <strong>AI-AUGMENTED<br>PRODUCT MANAGER</strong>
+        </div>
+        <div class="hero-promise reveal">
+          <span></span>
+          <strong>Product Thinking<br>Workflow Design<br>Commercial Strategy</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <canvas id="about-field" aria-hidden="true"></canvas>
+      <div class="section-title reveal">
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>ABOUT ME</h2>
+        <p>OAIOIL 的六个字母，是关于我的六个关键词，让你更快了解我。</p>
+      </div>
+      <div class="letter-lab reveal">
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">01</span>
+          <div class="letter-word">Ownership</div>
+          <button type="button" class="letter-glyph" aria-label="Ownership">O</button>
+          <div class="letter-copy">
+            <p>主动承担</p>
+            <h3>需要有人站出来时，我会站出来。面对不确定、压力和协作空缺，我习惯主动补位，把问题接住，把事情往前推。</h3>
+          </div>
+        </article>
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">02</span>
+          <div class="letter-word">Agency</div>
+          <button type="button" class="letter-glyph" aria-label="Agency">A</button>
+          <div class="letter-copy">
+            <p>主动破局</p>
+            <h3>先相信那 1% 的可能。即使现实条件并不乐观，我也会先寻找突破口，在行动中修正方向，而不是停在判断里。</h3>
+          </div>
+        </article>
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">03</span>
+          <div class="letter-word">Iterative</div>
+          <button type="button" class="letter-glyph" aria-label="Iterative">I</button>
+          <div class="letter-copy">
+            <p>复盘迭代</p>
+            <h3>要么成功，要么学到。每做完一件事，我都会复盘路径和判断，把经验沉淀成方法，把失败转化成下一次的判断力。</h3>
+          </div>
+        </article>
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">04</span>
+          <div class="letter-word">Origination</div>
+          <button type="button" class="letter-glyph" aria-label="Origination">O</button>
+          <div class="letter-copy">
+            <p>创意</p>
+            <h3>创意、想法，正在变得越来越值钱。AI 降低了创造的成本，也放大了创意的价值：看见新的可能，并把它推进成真实作品。</h3>
+          </div>
+        </article>
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">05</span>
+          <div class="letter-word">Integrated</div>
+          <button type="button" class="letter-glyph" aria-label="Integrated">I</button>
+          <div class="letter-copy">
+            <p>多技能整合</p>
+            <h3>代码 × 硬件 × 产品 × AI。物联网背景让我理解技术和设备，产品经历让我理解需求和体验，AI 工具让我把想法更快变成可见成果。</h3>
+          </div>
+        </article>
+        <article class="letter-item" data-keyword>
+          <span class="letter-index">06</span>
+          <div class="letter-word">Leverage</div>
+          <button type="button" class="letter-glyph" aria-label="Leverage">L</button>
+          <div class="letter-copy">
+            <p>AI 杠杆</p>
+            <h3>用 AI 撬动十倍杠杆。把 AI 工具当成合伙人，让分析、写作、原型、代码和知识处理形成个人生产力系统。</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities" class="section section--cinematic">
+      <div class="section-title reveal">
+        <p class="eyebrow">WHAT I CAN DO</p>
+        <h2>WHAT I CAN DO</h2>
+        <p>发现问题，定义路径，推动落地；用 AI 放大每一步的效率。</p>
+      </div>
+      <div class="carousel-shell reveal" aria-label="Capabilities carousel">
+        <button class="carousel-button carousel-button--prev" type="button" aria-label="Previous capability"><span aria-hidden="true">‹</span></button>
+        <div class="capability-orbit" aria-label="Capabilities">
+        <article class="orbit-card" data-carousel-card>
+          <span>01</span>
+          <h3>数据洞察</h3>
+          <p>从数据波动、用户行为和业务指标里找到问题，不只看结果，也追问背后的原因。</p>
+          <small>Data Insight · SQL</small>
+        </article>
+        <article class="orbit-card" data-carousel-card>
+          <span>02</span>
+          <h3>需求定义</h3>
+          <p>把模糊想法拆成真实场景、用户动机和产品目标，先定义问题，再设计功能。</p>
+          <small>User Scenario · PRD</small>
+        </article>
+        <article class="orbit-card" data-carousel-card>
+          <span>03</span>
+          <h3>方案拆解</h3>
+          <p>把复杂目标拆成路径、模块、优先级和 MVP，让方案从“想法”变成可执行计划。</p>
+          <small>MVP · Roadmap · Flow</small>
+        </article>
+        <article class="orbit-card" data-carousel-card>
+          <span>04</span>
+          <h3>协作推进</h3>
+          <p>在产品、研发、运营和设计之间对齐信息、拆清边界，推动项目稳定落地。</p>
+          <small>Cross-team · Delivery · Review</small>
+        </article>
+        <article class="orbit-card" data-carousel-card>
+          <span>05</span>
+          <h3>AI 提效</h3>
+          <p>用 AI 辅助调研、分析、文档、原型、代码和知识整理，把工具变成工作流。</p>
+          <small>AI Workflow · Prompt · Automation</small>
+        </article>
+        </div>
+        <button class="carousel-button carousel-button--next" type="button" aria-label="Next capability"><span aria-hidden="true">›</span></button>
+      </div>
+    </section>
+
+    <section id="work" class="stack-section">
+      <div class="stack-pin">
+        <div class="section-title reveal">
+          <p class="eyebrow">WHAT I HAVE DONE</p>
+          <h2>WHAT I HAVE DONE</h2>
+          <p>不止于完成任务，更在于把问题拆开、把方案做成、把结果推向真实场景。</p>
+        </div>
+        <div class="work-stack">
+        <article class="stack-card reveal">
+          <span class="stack-number">01</span>
+          <div class="stack-content">
+            <p class="stack-meta">Business · Search Strategy</p>
+            <h3 class="stack-heading">搜索商业化策略设计</h3>
+            <p class="stack-desc">围绕医药搜索场景，参与 Query 准入、风险分层、相关性校验与扩召回接入。把用户搜索词拆解成可判断、可流转、可商业化的策略单元，在安全边界内提升流量利用效率。</p>
+            <small>Query Strategy · Risk Control · Recall</small>
+          </div>
+        </article>
+        <article class="stack-card reveal">
+          <span class="stack-number">02</span>
+          <div class="stack-content">
+            <p class="stack-meta">Content · Product Design</p>
+            <h3 class="stack-heading">内容分发与找剧路径优化</h3>
+            <p class="stack-desc">针对短剧剧场频道，参与页面结构重组、筛选体系设计、新剧预约与剧宣社区搭建。把分散的内容入口整理成更清晰的找剧路径，让用户更快发现想看的内容。</p>
+            <small>Content Distribution · C-end Product · Conversion</small>
+          </div>
+        </article>
+        <article class="stack-card reveal">
+          <span class="stack-number">03</span>
+          <div class="stack-content">
+            <p class="stack-meta">AI · Agent Building</p>
+            <h3 class="stack-heading">AI Agent 全链路搭建</h3>
+            <p class="stack-desc">从角色设定、知识库建设、Prompt 调优到发布优化，独立完成智能体搭建流程。关注多轮对话稳定性、知识调用准确率和文本输出体验，让 Agent 不只是能回答，而是能持续服务。</p>
+            <small>Agent · Knowledge Base · Prompt</small>
+          </div>
+        </article>
+        <article class="stack-card reveal">
+          <span class="stack-number">04</span>
+          <div class="stack-content">
+            <p class="stack-meta">IoT · Smart Control</p>
+            <h3 class="stack-heading">语音控制灯光系统</h3>
+            <p class="stack-desc">基于树莓派、服务器与微信小程序，搭建软硬件协同的智能灯光控制系统。完成语音识别、远程开关、设备状态记录与定时任务等核心功能设计。</p>
+            <small>Raspberry Pi · Voice Control · IoT</small>
+          </div>
+        </article>
+        <article class="stack-card reveal">
+          <span class="stack-number">05</span>
+          <div class="stack-content">
+            <p class="stack-meta">Robot · Team Delivery</p>
+            <h3 class="stack-heading">机器人协同表演项目</h3>
+            <p class="stack-desc">负责机器人舞蹈与小车项目的程序逻辑、动作编排和现场调试，统筹团队分工与交付节奏。把创意、代码、硬件和现场执行整合成完整作品。</p>
+            <small>Robotics · Coding · Delivery</small>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" class="section tools-section">
+      <div class="section-title reveal">
+        <p class="eyebrow">TOOLS / COLLABORATORS</p>
+        <h2>COLLABORATORS</h2>
+        <p>我不是一个人在工作 —— 这是我和它们之间的分工。</p>
+      </div>
+      <div class="tool-grid">
+        <p class="tool-group-label">[ AI PARTNERS ]</p>
+        <article class="tool-card reveal tool-card--ai" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-chatgpt.png" alt=""></span><b>[AI]</b></div>
+          <h3>ChatGPT</h3>
+          <p>思维副驾</p>
+          <p>把模糊问题聊清楚。策略、文案、竞品、复盘——我用它快速搭框架，再用自己的判断筛选和修正。</p>
+          <small>Strategy · Writing · Reasoning</small>
+        </article>
+        <article class="tool-card reveal tool-card--ai" data-tilt>
+          <div class="tool-top"><span class="tool-icon tool-icon--codex-image"><img src="assets/tool-codex.png" alt=""></span><b>[AI]</b></div>
+          <h3>Codex</h3>
+          <p>代码施工</p>
+          <p>把想法变成能看的页面和能跑的原型。我描述需求，它完成代码，我负责审美、逻辑和最终验收。</p>
+          <small>Frontend · Prototype · Refactor</small>
+        </article>
+        <article class="tool-card reveal tool-card--ai" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-gemini.png" alt=""></span><b>[AI]</b></div>
+          <h3>Gemini</h3>
+          <p>文本杂务</p>
+          <p>日常文本的批量处理器。邮件、翻译、纪要、摘要，琐碎交给它，我把注意力留给更高阶判断。</p>
+          <small>Copy · Translate · Summary</small>
+        </article>
+        <p class="tool-group-label tool-group-label--second">[ CRAFT + INFRASTRUCTURE ]</p>
+        <article class="tool-card reveal tool-card--infra" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-figma.png" alt=""></span><b>[Craft]</b></div>
+          <h3>Figma</h3>
+          <p>原型表达</p>
+          <p>把产品想法变成清晰界面。信息架构、交互路径、视觉层级，都需要先被看见，才方便讨论和迭代。</p>
+          <small>Prototype · UI · Interaction</small>
+        </article>
+        <article class="tool-card reveal tool-card--infra" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-github.png" alt=""></span><b>[Infra]</b></div>
+          <h3>GitHub</h3>
+          <p>技术武器库</p>
+          <p>插件、MCP、Skills 和项目代码在这里发现、调试和沉淀。它让我跟得上 AI 工具链的变化节奏。</p>
+          <small>Plugins · MCP · Repository</small>
+        </article>
+        <article class="tool-card reveal tool-card--infra" data-tilt>
+          <div class="tool-top"><span class="tool-icon"><img src="assets/tool-feishu.webp" alt=""></span><b>[Work]</b></div>
+          <h3>Feishu</h3>
+          <p>知识协作系统</p>
+          <p>文档、表格、知识库、项目进度和会议纪要都在这里汇总。它是团队协作的信息底座，也是推进事情的仪表盘。</p>
+          <small>Docs · Base · Collaboration</small>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>LET'S BUILD SOMETHING REAL · LET'S BUILD SOMETHING REAL ·</span>
+          <span>LET'S BUILD SOMETHING REAL · LET'S BUILD SOMETHING REAL ·</span>
+        </div>
+      </div>
+      <div class="contact-inner reveal">
+        <p class="eyebrow">CONTACT</p>
+        <h2>LET'S BUILD<br><span>SOMETHING REAL.</span></h2>
+        <div class="contact-links">
+          <button type="button" data-copy="1489197526@qq.com"><span>EMAIL</span><strong>1489197526@qq.com</strong></button>
+          <button type="button" data-copy="13785113103"><span>PHONE</span><strong>13785113103</strong></button>
+          <button type="button" data-copy="zyxsdwx"><span>WECHAT</span><strong>zyxsdwx</strong></button>
+          <button type="button" class="contact-qr-trigger" data-qr-toggle aria-expanded="false" aria-controls="wechat-qr-panel"><span>WECHAT QR</span><strong>点击获取</strong></button>
+          <div class="wechat-qr-panel" id="wechat-qr-panel" aria-hidden="true">
+            <div class="wechat-qr-panel__head">
+              <span>WECHAT QR</span>
+              <button type="button" data-qr-close aria-label="Close WeChat QR">×</button>
+            </div>
+            <div class="wechat-qr-panel__image">
+              <img src="assets/wechat-qr.jpg" alt="WeChat QR code" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <span>© ZHANG YU</span>
+        <span>THANK YOU FOR VISITING</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="script.js?v=loader-fix-1"></script>
+</body>
+</html>

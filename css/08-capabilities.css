@@ -1,0 +1,157 @@
+﻿.section--cinematic {
+  z-index: 4;
+  isolation: isolate;
+  perspective: 1400px;
+}
+
+.carousel-shell {
+  position: relative;
+  min-height: 34.5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  perspective: 1600px;
+}
+
+.capability-orbit {
+  position: relative;
+  min-height: 34.5rem;
+  transform-style: preserve-3d;
+  cursor: grab;
+}
+
+.capability-orbit.is-dragging {
+  cursor: grabbing;
+}
+
+.orbit-card,
+.tool-card,
+.stack-card {
+  border: 1px solid rgba(255,255,255,0.68);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.66), rgba(255,255,255,0.28)),
+    radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(148,245,196,0.42), transparent 18rem);
+  box-shadow: 0 26px 90px rgba(89,80,140,0.12), inset 0 1px 0 rgba(255,255,255,0.86);
+  backdrop-filter: blur(22px) saturate(140%);
+}
+
+.orbit-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(30.6rem, 68vw);
+  min-height: 22.5rem;
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(148,245,196,0.16), transparent 16rem),
+    linear-gradient(145deg, #fffefa, #f7f7f1);
+  isolation: isolate;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  transition: opacity 260ms ease, box-shadow 260ms ease;
+}
+
+.orbit-card::before,
+.orbit-card::after {
+  position: absolute;
+  content: "";
+}
+
+.orbit-card::before {
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(145deg, #fffefa, #f7f7f1);
+}
+
+.orbit-card::after {
+  z-index: 0;
+  right: 3%;
+  bottom: 4%;
+  width: 24%;
+  height: 24%;
+  border-radius: 34% 66% 40% 60%;
+  background: rgba(46,207,141,0.14);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.orbit-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,0.72);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.58);
+  box-shadow: 0 16px 44px rgba(89,80,140,0.12);
+  color: var(--coral);
+  font-size: 2.2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  backdrop-filter: blur(18px);
+}
+
+.carousel-button span {
+  display: block;
+  line-height: 1;
+  transform: translateY(-0.08em);
+}
+
+.carousel-button--prev {
+  left: 0;
+}
+
+.carousel-button--next {
+  right: 0;
+}
+
+.orbit-card > span {
+  color: var(--coral);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.orbit-card h3,
+.tool-card h3 {
+  margin: 3rem 0 0;
+  font-family: Inter, "PingFang SC", sans-serif;
+  font-size: clamp(1.1rem, 1.55vw, 1.45rem);
+  font-weight: 620;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+
+.orbit-card p,
+.tool-card p {
+  margin: 1.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.orbit-card small {
+  display: block;
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+  color: var(--violet);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-weight: 800;
+}
+
+.orbit-card small {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  font-size: 0.66rem;
+}
+

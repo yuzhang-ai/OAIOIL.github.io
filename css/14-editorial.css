@@ -1,0 +1,1100 @@
+/* Editorial continuation: scoped paper spreads and a quieter About material. */
+.about-section .about-stone-image {
+  opacity: 0.075;
+  filter: saturate(0.72) contrast(0.94);
+}
+
+.portfolio-editorial {
+  position: relative;
+  z-index: 4;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: clamp(5rem, 6vw, 6.25rem);
+  padding-bottom: clamp(5rem, 6vw, 6.25rem);
+  background: #f5f1e9;
+}
+
+.portfolio-editorial::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(rgba(247, 243, 235, 0.9), rgba(240, 234, 223, 0.92)), url("../assets/paper-editorial-v1.webp") center / cover;
+  content: "";
+}
+
+.portfolio-editorial .section-title {
+  max-width: min(76rem, calc(100vw - var(--page-x) * 2));
+  margin: 0 auto clamp(3rem, 4vw, 3.5rem);
+}
+
+.portfolio-editorial .section-title h2 {
+  max-width: none;
+  color: #2d2924;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(5rem, 6.4vw, 6rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+}
+
+.portfolio-editorial .section-title h2 em {
+  color: #a17d51;
+  font-weight: inherit;
+}
+
+.portfolio-editorial .section-title > p:last-child {
+  max-width: 33rem;
+  color: rgba(45, 41, 36, 0.68);
+}
+
+.portfolio-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(19rem, 0.78fr);
+  align-items: start;
+  max-width: min(76rem, calc(100vw - var(--page-x) * 2));
+  margin: 0 auto;
+  gap: clamp(2rem, 6vw, 7.5rem);
+}
+
+.portfolio-plate {
+  position: sticky;
+  top: max(5.8rem, 10vh);
+  width: 100%;
+  min-height: clamp(30rem, 36vw, 32.5rem);
+  perspective: 1200px;
+}
+
+.portfolio-plate::before,
+.portfolio-plate::after {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgba(66, 55, 43, 0.15);
+  background: rgba(255, 253, 246, 0.74);
+  content: "";
+  pointer-events: none;
+}
+
+.portfolio-plate::before {
+  inset: 2.1rem -1.55rem -1.75rem 2rem;
+  transform: rotate(2.2deg);
+}
+
+.portfolio-plate::after {
+  inset: 0.8rem -0.7rem -0.7rem 0.7rem;
+  background: rgba(228, 217, 199, 0.42);
+  transform: rotate(-1.25deg);
+}
+
+.portfolio-page {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(54, 44, 35, 0.22);
+  background: #eee7d9;
+  box-shadow: 0 1.4rem 3.8rem rgba(78, 61, 41, 0.13), inset 0 0 0 0.35rem rgba(255, 253, 247, 0.32);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-2.25rem, 1.7rem, -4rem) rotate(-2deg);
+  transition: opacity 360ms ease, transform 650ms cubic-bezier(0.22, 0.78, 0.2, 1);
+}
+
+.portfolio-page.is-current {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) rotate(-0.35deg);
+}
+
+.portfolio-page--melovista {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.portfolio-page--melovista img {
+  width: 100%;
+  height: 100%;
+  padding: clamp(0.7rem, 1.6vw, 1.25rem);
+  object-fit: contain;
+  object-position: center;
+  filter: saturate(0.82) contrast(0.98);
+}
+
+.portfolio-page figcaption,
+.portfolio-page__index {
+  color: rgba(49, 42, 34, 0.58);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+}
+
+.portfolio-page figcaption {
+  border-top: 1px solid rgba(52, 43, 34, 0.15);
+  padding: 0.85rem 1rem;
+  background: rgba(251, 248, 241, 0.94);
+  text-transform: uppercase;
+}
+
+.portfolio-page--ai,
+.portfolio-page--skills {
+  align-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  background:
+    linear-gradient(155deg, rgba(255, 254, 249, 0.94), rgba(232, 222, 205, 0.9)),
+    url("../assets/paper-editorial-v1.webp") center / cover;
+}
+
+.portfolio-page__kicker {
+  margin: 0;
+  color: #9a7549;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+.portfolio-page--ai h3 {
+  margin: auto 0;
+  color: #2f2923;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 4.7vw, 4.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.portfolio-page--ai h3 i {
+  color: #a78152;
+  font-weight: 400;
+}
+
+.portfolio-page--ai > p:last-child {
+  max-width: 19rem;
+  margin: 0;
+  color: rgba(45, 38, 32, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.portfolio-page--skills dl {
+  display: grid;
+  margin: auto 0;
+  gap: 1.15rem;
+}
+
+.portfolio-page--skills dl div {
+  border-top: 1px solid rgba(49, 40, 31, 0.18);
+  padding-top: 0.72rem;
+}
+
+.portfolio-page--skills dt {
+  color: #9a7549;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+}
+
+.portfolio-page--skills dd {
+  margin: 0.36rem 0 0;
+  color: #2f2923;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(1.22rem, 2.5vw, 2rem);
+  line-height: 0.96;
+}
+
+.portfolio-directory {
+  border-top: 1px solid rgba(50, 42, 34, 0.25);
+}
+
+.portfolio-selector {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  width: 100%;
+  gap: 0.75rem;
+  border: 0;
+  border-bottom: 1px solid rgba(50, 42, 34, 0.2);
+  padding: 1.2rem 0;
+  background: transparent;
+  color: #302a24;
+  text-align: left;
+  cursor: pointer;
+  transition: color 220ms ease, padding 280ms ease;
+}
+
+.portfolio-selector span,
+.portfolio-selector i {
+  color: rgba(53, 44, 36, 0.5);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.65rem;
+  font-style: normal;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-selector strong {
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+}
+
+.portfolio-selector.is-current {
+  padding-left: 0.85rem;
+  color: #9a7549;
+}
+
+.portfolio-selector.is-current span,
+.portfolio-selector.is-current i {
+  color: #9a7549;
+}
+
+.portfolio-selector:focus-visible {
+  outline: 1px solid #a17d51;
+  outline-offset: -0.25rem;
+}
+
+.portfolio-notes {
+  min-height: 15rem;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.portfolio-note {
+  color: rgba(45, 38, 31, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  animation: portfolio-note-in 340ms ease both;
+}
+
+.portfolio-note p {
+  margin: 0 0 1.25rem;
+}
+
+.portfolio-note b {
+  color: #493c2f;
+  font-weight: 650;
+}
+
+.portfolio-note a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0 1.15rem 0.7rem 0;
+  border-bottom: 1px solid rgba(154, 117, 73, 0.55);
+  color: #7d5e3b;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.portfolio-note a:focus-visible,
+.portfolio-note a:hover {
+  color: #2f2923;
+}
+
+@keyframes portfolio-note-in {
+  from { opacity: 0; transform: translateY(0.65rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .portfolio-editorial {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .portfolio-spread {
+    grid-template-columns: 1fr;
+    gap: 3.25rem;
+  }
+
+  .portfolio-plate {
+    position: relative;
+    top: auto;
+    min-height: clamp(22.5rem, 46vw, 26.25rem);
+    max-width: 42rem;
+    order: 2;
+  }
+
+  .portfolio-directory {
+    display: contents;
+  }
+
+  .portfolio-tablist {
+    order: 1;
+    width: 100%;
+    max-width: 42rem;
+    border-top: 1px solid rgba(50, 42, 34, 0.25);
+  }
+
+  .portfolio-notes {
+    order: 3;
+    width: 100%;
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-editorial .section-title h2 {
+    font-size: clamp(3.55rem, 16vw, 5rem);
+  }
+
+  .portfolio-plate {
+    min-height: min(88vw, 21.875rem);
+  }
+
+  .portfolio-plate::before {
+    inset: 1.3rem -0.65rem -1rem 1rem;
+  }
+
+  .portfolio-page--ai,
+  .portfolio-page--skills {
+    padding: 1.35rem;
+  }
+
+  .portfolio-page--ai h3 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .portfolio-selector {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+  }
+
+  .portfolio-selector i {
+    grid-column: 2;
+  }
+
+  .portfolio-notes {
+    min-height: 0;
+  }
+}
+
+/* Refinement v1: real editorial page stack and inline accordion. */
+.portfolio-editorial,
+.section--cinematic,
+.stack-section,
+.tools-section,
+.contact,
+.about-section {
+  background: var(--paper);
+}
+
+.portfolio-editorial::before {
+  background: url("../assets/paper-editorial-v1.webp") center / cover;
+  opacity: 0.14;
+}
+
+.portfolio-editorial .section-title,
+.portfolio-editorial .section-title > p:last-child {
+  text-align: left;
+  margin-left: 0;
+}
+
+.portfolio-spread {
+  align-items: start;
+}
+
+.portfolio-plate {
+  isolation: isolate;
+  min-height: clamp(29rem, 34vw, 32rem);
+}
+
+.portfolio-plate::before {
+  display: none;
+}
+
+.portfolio-plate::after {
+  display: none;
+}
+
+.portfolio-page {
+  z-index: 1;
+  inset: 0 0 auto 0;
+  height: 100%;
+  margin: 0;
+  border-radius: 12px;
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(0);
+  transition: transform 750ms cubic-bezier(0.22, 0.78, 0.2, 1), box-shadow 750ms cubic-bezier(0.22, 0.78, 0.2, 1);
+  will-change: transform;
+}
+
+.portfolio-page.is-front {
+  z-index: 3;
+  transform: translate3d(0, 0, 0) rotate(0);
+}
+
+.portfolio-page.is-middle {
+  z-index: 2;
+  transform: translate3d(-3.1rem, -1.15rem, 0) rotate(-1deg);
+}
+
+.portfolio-page.is-back {
+  z-index: 1;
+  transform: translate3d(-3.75rem, -1.75rem, 0) rotate(-2deg);
+}
+
+.portfolio-page.is-outgoing {
+  z-index: 4;
+  transform: translate3d(0, 105%, 0) rotate(1.4deg) !important;
+  pointer-events: none;
+}
+
+.portfolio-page.is-resetting {
+  transition: none !important;
+}
+
+.portfolio-page--melovista img {
+  filter: none;
+}
+
+.portfolio-directory {
+  border-top: 1px solid rgba(40, 35, 30, 0.2);
+}
+
+.portfolio-tablist {
+  display: grid;
+}
+
+.portfolio-selector {
+  border-bottom: 1px solid rgba(40, 35, 30, 0.2);
+  padding: 1.05rem 0;
+}
+
+.portfolio-selector.is-current {
+  padding-left: 0.55rem;
+}
+
+.portfolio-note {
+  min-height: 0;
+  margin: 0;
+  padding: 0.85rem 0 1.35rem 2.75rem;
+  color: rgba(40, 35, 30, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.portfolio-note[hidden] {
+  display: none;
+}
+
+.portfolio-note p {
+  max-width: 31rem;
+  margin-bottom: 0.8rem;
+}
+
+.portfolio-note a {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .portfolio-directory {
+    display: block;
+    order: 0;
+    max-width: 42rem;
+  }
+
+  .portfolio-tablist {
+    order: unset;
+    width: auto;
+    max-width: none;
+    border-top: 0;
+  }
+
+  .portfolio-plate {
+    order: 0;
+    min-height: clamp(22.5rem, 62vw, 26rem);
+  }
+
+  .portfolio-page.is-middle {
+    transform: translate3d(-1.5rem, -0.7rem, 0) rotate(-1deg);
+  }
+
+  .portfolio-page.is-back {
+    transform: translate3d(-3rem, -1.35rem, 0) rotate(-2deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-plate {
+    min-height: min(88vw, 21.875rem);
+  }
+
+  .portfolio-note {
+    padding-left: 1.75rem;
+    font-size: 0.86rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page {
+    transition: none;
+  }
+}
+
+/* Amicro-inspired planar capability geometry, adapted without React. */
+.section--cinematic::before {
+  display: none;
+}
+
+.carousel-shell,
+.capability-orbit {
+  min-height: 28rem;
+}
+
+.carousel-shell {
+  max-width: min(74rem, calc(100vw - var(--page-x) * 2));
+}
+
+.capability-orbit {
+  overflow: visible;
+  cursor: grab;
+}
+
+.orbit-card {
+  width: clamp(18.75rem, 24vw, 21.25rem);
+  min-height: 19.75rem;
+  border-radius: 18px;
+  padding: 1.35rem 1.45rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1.1rem 2.9rem rgba(58, 47, 35, 0.12), inset 0 1px rgba(255, 255, 255, 0.98);
+  transition: transform 800ms cubic-bezier(0.22, 0.78, 0.2, 1), opacity 420ms ease, box-shadow 420ms ease;
+}
+
+.orbit-card::after {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-color: rgba(183, 126, 53, 0.52);
+}
+
+.orbit-card[aria-current="true"] {
+  box-shadow: 0 1.7rem 4rem rgba(58, 47, 35, 0.18), inset 0 1px rgba(255, 255, 255, 0.98);
+}
+
+.orbit-card h3 {
+  margin-top: 3.8rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.15rem);
+  line-height: 0.92;
+}
+
+.orbit-card p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.orbit-card small {
+  font-size: 0.58rem;
+}
+
+.carousel-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+}
+
+.carousel-button:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+@media (max-width: 900px) {
+  .carousel-shell,
+  .capability-orbit {
+    min-height: auto;
+  }
+
+  .capability-orbit {
+    overflow-x: auto;
+  }
+
+  .orbit-card {
+    width: auto;
+    min-height: 18rem;
+    border-radius: 18px;
+  }
+
+  .carousel-button {
+    display: none;
+  }
+}
+
+
+/* Bright continuous ground with raised white surfaces. */
+.stack-card,
+.tool-card,
+.tool-card--infra {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 0.8rem 2.4rem rgba(53, 44, 35, 0.1), inset 0 1px rgba(255, 255, 255, 0.98);
+}
+
+.wechat-qr-panel {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.site-header {
+  background: linear-gradient(to bottom, rgba(255, 253, 249, 0.84), rgba(255, 253, 249, 0.22) 72%, transparent);
+}
+
+.brand-mark {
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.48);
+  padding: 0.28rem 0.52rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page,
+  .portfolio-selector,
+  .portfolio-note {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Capabilities retain the existing carousel logic, but use a readable paper plate. */
+.section--cinematic {
+  position: relative;
+  overflow: clip;
+  background: #f3eee5;
+}
+
+.section--cinematic::before {
+  z-index: 0;
+  height: 9rem;
+  background: linear-gradient(to bottom, rgba(249, 246, 239, 0.94), rgba(249, 246, 239, 0));
+}
+
+.section--cinematic > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section--cinematic .section-title h2,
+.tools-section .section-title h2 {
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.section--cinematic .section-title > p:last-child,
+.tools-section .section-title > p:last-child {
+  color: rgba(48, 42, 36, 0.66);
+}
+
+.carousel-shell,
+.capability-orbit {
+  min-height: 38rem;
+}
+
+.carousel-shell {
+  max-width: min(80rem, calc(100vw - var(--page-x) * 2));
+}
+
+.orbit-card {
+  width: min(36rem, 72vw);
+  min-height: 27.5rem;
+  border: 1px solid rgba(59, 47, 35, 0.24);
+  border-radius: 0.18rem;
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  background: linear-gradient(rgba(255, 253, 247, 0.9), rgba(238, 228, 212, 0.9)), url("../assets/paper-editorial-v1.webp") center / cover;
+  box-shadow: 0 1.5rem 4rem rgba(69, 53, 35, 0.14), inset 0 0 0 0.38rem rgba(255, 253, 247, 0.44);
+  backdrop-filter: none;
+}
+
+.orbit-card::before {
+  background: transparent;
+}
+
+.orbit-card::after {
+  right: 1.5rem;
+  bottom: 1.25rem;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid rgba(161, 125, 81, 0.38);
+  border-radius: 50%;
+  background: transparent;
+  filter: none;
+}
+
+.orbit-card > span {
+  color: #9a7549;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.orbit-card h3 {
+  max-width: 11ch;
+  margin-top: clamp(5rem, 12vw, 8rem);
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4.7vw, 4.35rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+}
+
+.orbit-card p {
+  max-width: 29rem;
+  color: rgba(48, 42, 36, 0.7);
+  font-size: clamp(0.94rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.orbit-card small {
+  left: clamp(1.5rem, 3.5vw, 3rem);
+  bottom: clamp(1.4rem, 3.5vw, 2.5rem);
+  color: rgba(75, 58, 39, 0.58);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.carousel-button {
+  width: 3.45rem;
+  height: 3.45rem;
+  border: 1px solid rgba(68, 53, 37, 0.26);
+  border-radius: 0;
+  background: rgba(250, 247, 240, 0.92);
+  box-shadow: 0 0.75rem 1.8rem rgba(65, 49, 33, 0.1);
+  color: #8d693f;
+  backdrop-filter: none;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+  border-color: #a17d51;
+  color: #2f2923;
+}
+
+/* Existing stack geometry remains; only its surface changes to warm paper. */
+.stack-section {
+  background: #f5f1e9;
+}
+
+.stack-section .section-title h2 {
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.stack-section .section-title > p:last-child {
+  color: rgba(48, 42, 36, 0.66);
+}
+
+.stack-card {
+  border: 1px solid rgba(59, 47, 35, 0.21);
+  border-radius: 0.16rem;
+  background: linear-gradient(155deg, rgba(255, 253, 247, 0.91), rgba(237, 227, 211, 0.86)), url("../assets/paper-editorial-v1.webp") center / cover;
+  box-shadow: 0 0.85rem 2.5rem rgba(67, 52, 34, 0.12), inset 0 0 0 0.34rem rgba(255, 253, 247, 0.38);
+  backdrop-filter: none;
+}
+
+.stack-card:hover {
+  border-color: rgba(161, 125, 81, 0.75);
+  box-shadow: 0 0 0 0.75px rgba(161, 125, 81, 0.56), 0 0.85rem 2.5rem rgba(67, 52, 34, 0.12), inset 0 0 0 0.34rem rgba(255, 253, 247, 0.38);
+}
+
+.stack-number {
+  color: rgba(81, 62, 42, 0.19);
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+}
+
+.stack-meta {
+  color: #967044;
+  font-weight: 500;
+}
+
+.stack-heading {
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.stack-desc,
+.stack-content small {
+  color: rgba(48, 42, 36, 0.66);
+}
+
+.stack-content small {
+  border-color: rgba(66, 52, 36, 0.16);
+}
+
+/* Tools become a four-by-four editorial index without changing their tilt interaction. */
+.tools-section {
+  background: #eee7dc;
+}
+
+.tool-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: min(80rem, calc(100vw - var(--page-x) * 2));
+  gap: 0.9rem;
+}
+
+.tool-group-label {
+  margin: 1rem 0 0;
+  color: rgba(70, 54, 37, 0.52);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-align: left;
+}
+
+.tool-group-label--second {
+  margin-top: 1.6rem;
+}
+
+.tool-card,
+.tool-card--infra {
+  border: 1px solid rgba(60, 48, 36, 0.2);
+  border-radius: 0.14rem;
+  background: linear-gradient(155deg, rgba(255, 253, 247, 0.9), rgba(235, 225, 210, 0.78)), url("../assets/paper-editorial-v1.webp") center / cover;
+  box-shadow: 0 0.8rem 2.2rem rgba(66, 51, 35, 0.09), inset 0 0 0 0.25rem rgba(255, 253, 247, 0.32);
+  backdrop-filter: none;
+}
+
+.tool-card {
+  grid-template-rows: 2.1rem 2rem 1.22rem minmax(4.8rem, 1fr) auto;
+  min-height: 15.6rem;
+  padding: 1.2rem;
+}
+
+.tool-top b,
+.tool-card--infra .tool-top b {
+  color: #967044;
+  font-weight: 500;
+}
+
+.tool-card h3 {
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(1.12rem, 1.45vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.tool-card p:first-of-type {
+  color: #6d5740;
+  font-weight: 550;
+}
+
+.tool-card p:last-of-type,
+.tool-card small {
+  color: rgba(48, 42, 36, 0.62);
+}
+
+.tool-card small {
+  border-color: rgba(59, 47, 35, 0.16);
+  font-weight: 500;
+}
+
+.contact {
+  background: #f5f1e9;
+}
+
+.contact-marquee {
+  color: rgba(83, 63, 41, 0.055);
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.contact h2 {
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.contact h2 span,
+.contact-links > button[data-copied="true"] strong::after {
+  color: #9a7549;
+}
+
+.contact-links > button {
+  border-color: rgba(59, 47, 35, 0.18);
+}
+
+.contact-links > button:hover,
+.contact-links > button:focus-visible {
+  color: #8d693f;
+}
+
+footer {
+  border-color: rgba(59, 47, 35, 0.18);
+  color: rgba(71, 56, 39, 0.58);
+}
+
+.wechat-qr-panel {
+  border-color: rgba(67, 54, 39, 0.18);
+  border-radius: 0.2rem;
+  background: rgba(251, 248, 242, 0.96);
+  box-shadow: 0 1.25rem 3rem rgba(63, 48, 32, 0.14);
+  backdrop-filter: none;
+}
+
+@media (max-width: 900px) {
+  .carousel-shell,
+  .capability-orbit {
+    min-height: auto;
+  }
+
+  .orbit-card {
+    min-height: 21rem;
+  }
+
+  .orbit-card h3 {
+    margin-top: 3.8rem;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tool-card {
+    min-height: 14rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .orbit-card {
+    min-height: 18rem;
+  }
+
+  .orbit-card h3 {
+    font-size: 2.15rem;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-group-label {
+    margin-top: 1.6rem;
+  }
+}
+
+/* Refinement v1 final cascade: intentionally last to outrank legacy editorial rules. */
+.portfolio-editorial,
+.section--cinematic,
+.stack-section,
+.tools-section,
+.contact,
+.about-section {
+  background: var(--paper);
+}
+
+.section--cinematic::before {
+  display: none;
+}
+
+.carousel-shell,
+.capability-orbit {
+  min-height: 28rem;
+}
+
+.carousel-shell {
+  max-width: min(74rem, calc(100vw - var(--page-x) * 2));
+}
+
+.capability-orbit {
+  overflow: visible;
+  cursor: grab;
+}
+
+.orbit-card {
+  width: clamp(18.75rem, 24vw, 21.25rem);
+  min-height: 19.75rem;
+  border: 1px solid rgba(58, 47, 35, 0.18);
+  border-radius: 18px;
+  padding: 1.35rem 1.45rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1.1rem 2.9rem rgba(58, 47, 35, 0.12), inset 0 1px rgba(255, 255, 255, 0.98);
+  transition: transform 800ms cubic-bezier(0.22, 0.78, 0.2, 1), opacity 420ms ease, box-shadow 420ms ease;
+}
+
+.orbit-card::after {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-color: rgba(183, 126, 53, 0.52);
+}
+
+.orbit-card[aria-current="true"] {
+  box-shadow: 0 1.7rem 4rem rgba(58, 47, 35, 0.18), inset 0 1px rgba(255, 255, 255, 0.98);
+}
+
+.orbit-card h3 {
+  margin-top: 3.8rem;
+  color: #302a24;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.15rem);
+  font-weight: 400;
+  line-height: 0.92;
+}
+
+.orbit-card p {
+  margin-top: 1rem;
+  color: rgba(48, 42, 36, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.orbit-card small {
+  font-size: 0.58rem;
+}
+
+.carousel-button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+}
+
+.carousel-button:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.stack-card,
+.tool-card,
+.tool-card--infra {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 0.8rem 2.4rem rgba(53, 44, 35, 0.1), inset 0 1px rgba(255, 255, 255, 0.98);
+}
+
+.wechat-qr-panel {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.site-header {
+  background: linear-gradient(to bottom, rgba(255, 253, 249, 0.84), rgba(255, 253, 249, 0.22) 72%, transparent);
+}
+
+.brand-mark {
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.48);
+  padding: 0.28rem 0.52rem;
+}
+
+@media (max-width: 900px) {
+  .carousel-shell,
+  .capability-orbit {
+    min-height: auto;
+  }
+
+  .capability-orbit {
+    overflow-x: auto;
+  }
+
+  .orbit-card {
+    width: auto;
+    min-height: 18rem;
+    border-radius: 18px;
+  }
+
+  .carousel-button {
+    display: none;
+  }
+}

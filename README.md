@@ -1,4 +1,4 @@
-# OAIOIL Portfolio Website
+# OAIOIL Portfolio Website 2.0
 
 Personal portfolio site deployed with GitHub Pages.
 
@@ -16,7 +16,7 @@ Personal portfolio site deployed with GitHub Pages.
 
 ## Deployment
 
-This repository is published by GitHub Pages from the `main` branch root.
+GitHub Pages publishes the `site-v2` branch root. The unchanged `main` branch retains version 1.0. Both website versions are available via the header version switch. See [VERSIONS.md](VERSIONS.md) for publishing and rollback details.
 
 Live site:
 

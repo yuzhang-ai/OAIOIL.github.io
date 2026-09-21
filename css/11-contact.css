@@ -1,0 +1,197 @@
+﻿.contact {
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.contact-marquee {
+  position: absolute;
+  inset: 16% 0 auto;
+  overflow: hidden;
+  color: rgba(21,22,28,0.055);
+  font-family: "Arial Black", Inter, sans-serif;
+  font-size: clamp(5rem, 13vw, 14rem);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: end;
+  min-height: calc(100svh - 12rem);
+  max-width: var(--max);
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.contact h2 {
+  font-size: clamp(2.45rem, 6.5vw, 7.22rem);
+  line-height: 0.88;
+}
+
+.contact h2 span {
+  color: var(--coral);
+}
+
+.contact-links {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.contact-links > button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 1.15rem 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.contact-links > button span {
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  transform: translateY(0.08rem);
+}
+
+.contact-links > button strong {
+  text-align: right;
+  font-weight: 420;
+}
+
+.contact-inner .eyebrow {
+  display: none;
+}
+
+.contact-links > button[data-copied="true"] strong::after {
+  color: var(--coral);
+  content: "  COPIED";
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.contact-qr-trigger strong {
+  color: var(--ink);
+}
+
+.contact-links > .contact-qr-trigger {
+  border-bottom: 0;
+}
+
+.wechat-qr-panel {
+  display: grid;
+  justify-self: end;
+  gap: 0.95rem;
+  width: min(100%, 20rem);
+  max-height: 0;
+  margin: 0;
+  padding: 0 1.35rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0);
+  border-radius: 1.15rem;
+  opacity: 0;
+  transform: translateY(-0.85rem) scale(0.98);
+  background: rgba(255,255,255,0.66);
+  box-shadow: 0 2rem 5.5rem rgba(44,50,62,0.12);
+  backdrop-filter: blur(22px) saturate(142%);
+  transition:
+    max-height 560ms var(--ease),
+    margin 560ms var(--ease),
+    padding 560ms var(--ease),
+    opacity 300ms ease,
+    transform 560ms var(--ease),
+    border-color 300ms ease;
+}
+
+.contact-links.is-qr-open .wechat-qr-panel {
+  max-height: 28rem;
+  margin: 1.15rem 0 1.45rem;
+  padding: 1rem;
+  border-color: rgba(255,255,255,0.78);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wechat-qr-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wechat-qr-panel__head span {
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.wechat-qr-panel__head button {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 0 0.12rem;
+  background: rgba(255,255,255,0.58);
+  color: var(--muted);
+  font-size: 1.65rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.wechat-qr-panel__head button:hover {
+  border-color: rgba(255,90,31,0.35);
+  color: var(--coral);
+  transform: rotate(90deg);
+}
+
+.wechat-qr-panel__image {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 950 / 1295;
+  max-height: 21rem;
+  overflow: hidden;
+  border-radius: 0.95rem;
+  background: rgba(255,255,255,0.9);
+}
+
+.wechat-qr-panel__image img {
+  width: 100%;
+  height: 100%;
+  padding: clamp(0.65rem, 2vw, 1.1rem);
+  object-fit: contain;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  padding-top: 1.35rem;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+footer span:last-child {
+  text-align: right;
+}
+
+

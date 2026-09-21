@@ -1,0 +1,296 @@
+﻿.about-section {
+  min-height: 120vh;
+  overflow: clip;
+  isolation: isolate;
+  background: #f5f1e9;
+}
+
+.about-section::before,
+.about-section::after,
+.section--cinematic::before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  height: 12rem;
+  pointer-events: none;
+  content: "";
+}
+
+.about-section::before,
+.section--cinematic::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(var(--paper-rgb), 0.98), rgba(var(--paper-rgb), 0));
+}
+
+.about-section::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(var(--paper-rgb), 0.98), rgba(var(--paper-rgb), 0));
+}
+
+.about-stone-image,
+#about-gold-fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 13%, black 87%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 13%, black 87%, transparent 100%);
+}
+
+.about-section::before,
+.about-section::after {
+  z-index: 2;
+}
+
+.about-stone-image {
+  z-index: 0;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.52;
+  filter: saturate(0.9) contrast(0.97);
+}
+
+#about-gold-fx {
+  z-index: 1;
+  display: block;
+}
+
+.about-section > .section-title,
+.about-section > .letter-lab {
+  position: relative;
+  z-index: 3;
+}
+
+.about-section[data-about-effect-state="active"] #about-gold-fx,
+.about-section[data-about-effect-state="degraded"] #about-gold-fx {
+  opacity: 1;
+}
+
+.about-section[data-about-effect-state="static"] #about-gold-fx,
+.about-section[data-about-effect-state="fallback"] #about-gold-fx,
+.about-section[data-about-effect-state="starting"] #about-gold-fx {
+  opacity: 0;
+}
+
+/* The image is the resilient material layer; WebGL only adds transparent seam light. */
+#about-gold-fx {
+  width: 100%;
+  height: 100%;
+  transition: opacity 240ms ease;
+}
+
+.letter-lab {
+  position: relative;
+  left: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: auto;
+  max-width: min(1680px, calc(100vw - var(--page-x) * 2));
+  margin: 0 auto;
+  gap: clamp(0.45rem, 1.2vw, 1rem) clamp(0.6rem, 2vw, 2.4rem);
+  padding: clamp(1rem, 2.6vw, 2.4rem) clamp(0.2rem, 1.6vw, 1.2rem);
+}
+
+.letter-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.4rem minmax(4.5rem, 0.72fr) clamp(4.2rem, 7vw, 6.8rem) minmax(0, 1.85fr);
+  align-items: center;
+  min-height: 11.5rem;
+  gap: clamp(1rem, 2vw, 2rem);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+  transition: transform 360ms var(--ease);
+  user-select: none;
+}
+
+.letter-item::before {
+  position: absolute;
+  inset: -12% -18%;
+  height: auto;
+  border-radius: 999px;
+  background: radial-gradient(ellipse at center, rgba(171, 142, 99, 0.15), transparent 58%);
+  filter: blur(10px);
+  opacity: 0;
+  content: "";
+  transition: opacity 320ms ease;
+}
+
+.letter-index {
+  position: relative;
+  top: auto;
+  left: auto;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateX(-2.2rem);
+  transition: opacity 320ms ease, transform 420ms var(--ease);
+  user-select: none;
+}
+
+.letter-glyph {
+  position: relative;
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  border: 0;
+  background: transparent;
+  color: #302c28;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(5.6rem, 8.3vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.68;
+  transition: opacity 320ms ease, color 320ms ease, text-shadow 320ms ease;
+}
+
+.letter-word,
+.letter-copy {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 420ms var(--ease);
+  user-select: none;
+}
+
+.letter-word {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  margin: 0;
+  color: #63594e;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.15vw, 2.45rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transform: translateX(-2.2rem);
+}
+
+.letter-copy {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  min-width: 0;
+  max-width: 100%;
+  transform: translateX(2.2rem);
+}
+
+.letter-copy p {
+  margin: 0;
+  color: #3b342e;
+  font-size: clamp(0.96rem, 1.08vw, 1.12rem);
+  font-weight: 600;
+}
+
+.letter-copy h3 {
+  margin: 0.42rem 0 0;
+  color: rgba(59, 52, 46, 0.7);
+  font-size: clamp(0.82rem, 0.92vw, 0.98rem);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.letter-item.is-active {
+  transform: none;
+}
+
+.letter-item.is-active::before {
+  opacity: 1;
+}
+
+.letter-item.is-active .letter-glyph {
+  color: #201d1a;
+  text-shadow: 0 14px 34px rgba(100, 78, 53, 0.13);
+}
+
+.letter-lab.has-active .letter-item:not(.is-active) .letter-glyph {
+  opacity: 0.18;
+  filter: blur(2.2px);
+  text-shadow: 0 14px 34px rgba(46, 42, 38, 0.06);
+}
+
+.letter-item.is-active .letter-word,
+.letter-item.is-active .letter-index,
+.letter-item.is-active .letter-copy {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.letter-item:nth-child(2n) {
+  text-align: right;
+  grid-template-columns: minmax(0, 1.85fr) clamp(4.2rem, 7vw, 6.8rem) minmax(4.5rem, 0.72fr) 2.4rem;
+}
+
+.letter-item:nth-child(2n) .letter-index {
+  grid-column: 4;
+  grid-row: 1;
+  left: auto;
+  right: 0;
+  transform: translateX(2.2rem);
+  justify-self: start;
+}
+
+.letter-item:nth-child(2n) .letter-copy {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  text-align: right;
+  transform: translateX(-2.2rem);
+}
+
+.letter-item:nth-child(2n) .letter-glyph {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+.letter-item:nth-child(2n) .letter-word {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+  text-align: right;
+  transform: translateX(2.2rem);
+}
+
+.letter-item:nth-child(2n).is-active .letter-copy,
+.letter-item:nth-child(2n).is-active .letter-word {
+  transform: translateX(0);
+}
+
+.letter-glyph:focus-visible {
+  outline: 1px solid #a8865c;
+  outline-offset: 0.22em;
+}
+
+.about-section .section-title h2 {
+  color: #302c28;
+  font-family: "Bodoni MT", Didot, "Times New Roman", serif;
+  font-size: clamp(3.3rem, 6.2vw, 6.8rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.about-section .section-title > p:last-child {
+  max-width: 42rem;
+  color: rgba(59, 52, 46, 0.68);
+}
+
+

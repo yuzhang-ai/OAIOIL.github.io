@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" role="img" aria-hidden="true">
+  <defs>
+    <path id="o-ring" fill="#2e2a27" fill-rule="evenodd" d="M28 3.5C40.4 3.5 50.5 14.5 50.5 28S40.4 52.5 28 52.5 5.5 41.5 5.5 28 15.6 3.5 28 3.5Zm0 1.5C21.9 5 17 15.3 17 28s4.9 23 11 23 11-10.3 11-23S34.1 5 28 5Z"/>
+    <clipPath id="o-shape" clipPathUnits="userSpaceOnUse">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M28 3.5C40.4 3.5 50.5 14.5 50.5 28S40.4 52.5 28 52.5 5.5 41.5 5.5 28 15.6 3.5 28 3.5Zm0 1.5C21.9 5 17 15.3 17 28s4.9 23 11 23 11-10.3 11-23S34.1 5 28 5Z"/>
+    </clipPath>
+    <clipPath id="o-upper" clipPathUnits="userSpaceOnUse">
+      <path d="M0 0H56V16.5L0 29.4Z"/>
+    </clipPath>
+    <clipPath id="o-lower" clipPathUnits="userSpaceOnUse">
+      <path d="M0 33L56 20.1V56H0Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#o-upper)" transform="translate(.45 -.4)">
+    <use href="#o-ring"/>
+  </g>
+  <g clip-path="url(#o-lower)" transform="translate(-.45 .4)">
+    <use href="#o-ring"/>
+    <g clip-path="url(#o-shape)">
+      <path fill="#b49367" d="M0 33.7 56 20.8 56 21.8 0 34.7Z"/>
+    </g>
+  </g>
+</svg>

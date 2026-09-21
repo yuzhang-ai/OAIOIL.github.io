@@ -1,0 +1,21 @@
+/* Directional counterpart for the three-page editorial stack. Imported by main. */
+.portfolio-page.is-rising {
+  z-index: 4;
+  transform: translate3d(0, 105%, 0) rotate(1.4deg) !important;
+  pointer-events: none;
+}
+
+.portfolio-page.is-rising.is-resetting {
+  transition: none !important;
+}
+
+.portfolio-page.is-rising.is-returning {
+  z-index: 4;
+  transform: translate3d(0, 0, 0) rotate(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page.is-rising {
+    transition: none !important;
+  }
+}

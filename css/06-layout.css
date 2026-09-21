@@ -1,0 +1,42 @@
+﻿.section,
+.about-section,
+.contact {
+  position: relative;
+  padding: var(--section-y) var(--page-x);
+}
+
+.section,
+.about-section,
+.contact,
+.stack-section {
+  scroll-margin-top: clamp(5rem, 10vw, 7rem);
+}
+
+.section-title {
+  max-width: 78rem;
+  margin: 0 auto var(--section-title-gap);
+  text-align: center;
+  opacity: var(--title-progress, 0);
+  transform: translateY(calc((1 - var(--title-progress, 0)) * 22px));
+  will-change: transform, opacity;
+}
+
+.section-title .eyebrow {
+  display: none;
+}
+
+.section-title h2 {
+  font-size: clamp(2.45rem, 5.34vw, 5.34rem);
+  line-height: 0.86;
+  color: var(--coral);
+}
+
+.section-title > p:last-child {
+  max-width: 54rem;
+  margin: 1rem auto 0;
+  color: rgba(21,22,28,0.72);
+  font-size: clamp(1rem, 1.7vw, 1.35rem);
+  font-weight: 430;
+}
+
+

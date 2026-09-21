@@ -1,0 +1,28 @@
+/* Shared navigation independent of either site's scripts and theme. */
+.site-header .version-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 40px;
+  padding: .6rem .95rem;
+  border: 1px solid #bda27a;
+  border-radius: 999px;
+  background: #fffdf9;
+  color: #44382a;
+  font: 500 12px/1.2 system-ui, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  pointer-events: auto;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+.site-header .version-switch:hover { background: #f6e5bd; border-color: #ae864c; }
+.site-header .version-switch:focus-visible { outline: 2px solid #72572f; outline-offset: 4px; }
+.site-header .version-switch:active { transform: scale(.98); }
+.opening-pending .version-switch, body.is-opening .version-switch { visibility: hidden; }
+@media (max-width: 600px) {
+  .site-header .version-switch { min-height: 44px; padding: .5rem .75rem; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header .version-switch { transition: none; }
+}

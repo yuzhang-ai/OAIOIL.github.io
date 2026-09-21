@@ -1,0 +1,63 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--paper);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: var(--body-leading);
+  text-rendering: geometricPrecision;
+}
+
+body[data-theme="pearl"] {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 169, 104, 0.86), transparent 40rem),
+    radial-gradient(circle at 82% 18%, rgba(255, 107, 69, 0.22), transparent 34rem),
+    linear-gradient(135deg, #fffaf4 0%, #fff2e5 42%, #f2edff 100%);
+}
+
+body[data-theme="ice"] {
+  background:
+    radial-gradient(circle at 16% 12%, rgba(200, 245, 255, 0.9), transparent 28rem),
+    radial-gradient(circle at 82% 18%, rgba(125, 157, 255, 0.32), transparent 34rem),
+    linear-gradient(135deg, #f7fbff 0%, #eef9fb 42%, #eef2ff 100%);
+}
+
+body.is-loading {
+  overflow: visible;
+}
+
+a,
+button {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+

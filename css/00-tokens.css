@@ -1,0 +1,49 @@
+﻿:root {
+  --paper: #fffdf9;
+  --paper-rgb: 255, 253, 249;
+  --ink: #28231e;
+  --ink-soft: rgba(40, 35, 30, 0.68);
+  --muted: rgba(40, 35, 30, 0.46);
+  --line: rgba(40, 35, 30, 0.13);
+  --body-leading: 2.0;
+  --mint: #f6f1e7;
+  --mint-deep: #b77e35;
+  --violet: #b77e35;
+  --violet-soft: #f3e8d4;
+  --coral: #b77e35;
+  --glass: rgba(255, 255, 255, 0.48);
+  --radius-lg: 34px;
+  --radius-md: 22px;
+  --radius-sm: 14px;
+  --max: 1440px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --page-x: clamp(1rem, 4.8vw, 5rem);
+  --section-y: clamp(3.8rem, 7.2vw, 6.5rem);
+  --section-title-gap: clamp(2rem, 3.6vw, 3.25rem);
+  --hero-scroll-height: 230vh;
+  --hero-portrait-w: min(500px, 35vw);
+  --hero-portrait-h: min(650px, 72vh);
+  --glass-border: 1px solid rgba(255,255,255,0.68);
+  --shadow-glass: 0 26px 90px rgba(89,80,140,0.12), inset 0 1px 0 rgba(255,255,255,0.86);
+}
+
+body[data-theme="pearl"] {
+  --paper: #fbf4ed;
+  --paper-rgb: 251, 244, 237;
+  --mint: #ffe0a8;
+  --mint-deep: #ff9f45;
+  --violet: #ff6b45;
+  --violet-soft: #ffd7c8;
+  --coral: #7d5cff;
+}
+
+body[data-theme="ice"] {
+  --paper: #eef7fb;
+  --paper-rgb: 238, 247, 251;
+  --mint: #c8f5ff;
+  --mint-deep: #36bfd3;
+  --violet: #7d9dff;
+  --violet-soft: #dbe4ff;
+  --coral: #25a886;
+}
+

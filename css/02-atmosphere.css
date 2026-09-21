@@ -1,0 +1,34 @@
+﻿#atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  width: 100vw;
+  height: 100vh;
+}
+
+.ambient-lines,
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+}
+
+.ambient-lines {
+  z-index: 2;
+  opacity: 0.22;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='900' height='900' viewBox='0 0 900 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ff5a1f' stroke-opacity='.2' stroke-width='2'%3E%3Cpath d='M-90 210C120 30 230 440 380 260S560-40 760 130 780 610 1020 390'/%3E%3Cpath d='M-80 580C110 420 220 740 410 560S640 260 810 430 800 780 990 690'/%3E%3Cpath d='M70-80C20 160 240 210 190 460S20 770 160 970'/%3E%3Cpath d='M570-90C460 170 690 290 610 520S490 770 630 980'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 62rem 62rem;
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+  animation: flow-lines 26s linear infinite;
+}
+
+.grain {
+  z-index: 60;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  background-image: linear-gradient(115deg, rgba(21,22,28,0.12) 0 1px, transparent 1px 7px);
+  animation: grain-shift 0.5s steps(2) infinite;
+}
+
+

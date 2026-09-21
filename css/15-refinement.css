@@ -1,0 +1,66 @@
+/* Final review: contemporary type on classical surfaces; loaded after editorial. */
+.brand-mark { background: rgba(255, 253, 249, 0.96); }
+.orbit-card h3,
+.tool-card h3 {
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+.orbit-card p,
+.tool-card p:last-of-type,
+.portfolio-note,
+.stack-desc { color: #51493f; }
+.orbit-card[aria-current="true"] {
+  border-color: #e5bb67;
+}
+.portfolio-selector.is-current,
+.portfolio-selector.is-current i,
+.portfolio-selector.is-current span { color: #835b27; }
+.tool-card:hover { border-color: #e8bd65; }
+.tool-group-label { text-align: center; }
+.portfolio-page.is-middle { transform: translate3d(-1.8rem, -1rem, 0) rotate(-.7deg); }
+.portfolio-page.is-back { transform: translate3d(-3.6rem, -2rem, 0) rotate(-1.4deg); }
+
+/* Frosted glass is local to capabilities, not a new page-wide material. */
+.carousel-shell {
+  background: radial-gradient(ellipse at 48% 62%, rgba(247, 200, 106, .24), transparent 64%);
+}
+.orbit-card,
+.orbit-card[aria-current="true"] {
+  background: linear-gradient(135deg, rgba(255,255,255,.8), rgba(255,253,245,.38));
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.98), inset 0 -1px 0 rgba(226,190,119,.24), 0 16px 42px rgba(89,73,43,.1);
+}
+.orbit-card[aria-current="true"] {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.98), inset 0 0 0 1px rgba(255,255,255,.55), 0 20px 48px rgba(123,96,46,.13);
+}
+.stack-card:hover {
+  border-color: #edc36d;
+  box-shadow: 0 0 0 1px rgba(248,205,114,.74), 0 0 22px rgba(248,205,114,.18), 0 12px 38px rgba(82,66,38,.09), inset 0 1px 0 #fff;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .orbit-card, .orbit-card[aria-current="true"] { background: #fffdf7; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .orbit-card, .orbit-card[aria-current="true"] {
+    background: #fffdf7;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+@media (max-width: 900px) {
+  .capability-orbit { gap: 1.75rem; }
+  .portfolio-page.is-middle { transform: translate3d(-1rem, -.65rem, 0) rotate(-.7deg); }
+  .portfolio-page.is-back { transform: translate3d(-2rem, -1.3rem, 0) rotate(-1.4deg); }
+}
+.portfolio-editorial::before {
+  mask-image: linear-gradient(transparent, black 18%, black 82%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, black 18%, black 82%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-card, .portfolio-page, .portfolio-note, .portfolio-selector {
+    transition: none !important;
+    animation: none !important;
+  }
+}
