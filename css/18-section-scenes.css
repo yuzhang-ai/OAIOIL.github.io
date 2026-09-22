@@ -1,4 +1,5 @@
 /* Three material families. No overrides of orbit/stack/magnetic JS transforms. */
+#portfolio .portfolio-page--screenshot { padding: 0; align-content: stretch; grid-template-rows: minmax(0, 1fr) auto; }
 #portfolio .portfolio-page {
   border-color: rgba(112, 95, 68, .18);
   background-color: #fcfaf5;
