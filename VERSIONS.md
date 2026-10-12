@@ -4,6 +4,7 @@
 - Classic 1.0: https://oaioil.cn/v1/
 - Both headers include a version-switch link.
 - `main` preserves the original 1.0 source. `site-v2` contains 2.0 and its classic archive.
+- `site-v2` is the repository default branch; changing this does not remove the classic archive or change the domain.
 
 GitHub Pages publishes `site-v2`, root `/`, with the existing CNAME. Rollback by switching Pages back to `main`, root `/`; keep the domain unchanged.
 
